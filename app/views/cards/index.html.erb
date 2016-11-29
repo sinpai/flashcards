@@ -1,0 +1,26 @@
+<h1>Все карточки</h1>
+<section class="all-cards">
+    <table class="table table-striped">
+      <thead>
+	  <tr>
+	      <th>#</th>
+	      <th>Original text</th>
+	      <th>Translated text</th>
+	      <th>Review date</th>
+	      <th>Created at</th>
+	  </tr>
+      </thead>
+      <tbody>
+	  <% @cards.each_with_index do |card, index| %>
+	      <tr>
+		  <th scope="row"><%= index+1 %></th>
+		  <td><%= card.original_text %></td>
+		  <td><%= card.translated_text %></td>
+		  <td><%= card.review_date.nil? ? '-' : card.review_date.to_time.strftime("%d/%m/%Y") %></td>
+		  <td><%= card.created_at.to_time.strftime("%d/%m/%Y") %></td>
+	      </tr>
+	  <% end %>
+      </tbody>
+  </table>
+</section>
+	    
