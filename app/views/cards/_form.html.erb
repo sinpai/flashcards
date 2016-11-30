@@ -1,0 +1,18 @@
+<%= form_for(@card) do |f| %>
+
+    <div class="form-group">
+	<%= f.label :original_text %><br />
+	<%= f.text_field :original_text, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+	<%= f.label :translated_text %><br />
+	<%= f.text_field :translated_text, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+	<%= f.label :review_date %>
+	<%= f.date_select :review_date, class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-default" %>
+<% end %>
