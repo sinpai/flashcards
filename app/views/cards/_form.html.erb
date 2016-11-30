@@ -1,18 +1,20 @@
-<%= form_for(@card) do |f| %>
+<%= simple_form_for(@card) do |f| %>
 
-    <div class="form-group">
-	<%= f.label :original_text %><br />
-	<%= f.text_field :original_text, autofocus: true, class: "form-control" %>
-    </div>
+    <% if @card.errors.any? %>
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    <h5><%= pluralize(@card.errors.count, "ошибка(-ок)") %>
+		выявлено при сохранении формы:</h5>
 
-    <div class="form-group">
-	<%= f.label :translated_text %><br />
-	<%= f.text_field :translated_text, class: "form-control" %>
-    </div>
+	    <ul>
+		<% @card.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		<% end %>
+	    </ul>
+	</div>
+    <% end %>
 
-    <div class="form-group">
-	<%= f.label :review_date %>
-	<%= f.date_select :review_date, class: "form-control" %>
-    </div>
-    <%= f.submit class: "btn btn-default" %>
+    <%= f.input :original_text, label: "Текст", placeholder: "Текст", input_html: { :style=> 'width: 50%;', :rows => 1} %>
+    <%= f.input :translated_text, label: "Перевод", placeholder: "Перевод", input_html: { :style=> 'width: 50%;', :rows => 1} %>
+    <%= f.button :submit %><br />
 <% end %>
