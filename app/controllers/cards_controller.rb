@@ -2,7 +2,7 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.order('id').all
+    @cards = Card.order(:id)
   end
 
   def new
@@ -28,21 +28,16 @@ class CardsController < ApplicationController
 
   def update
     @card = Card.find(params[:id])
-    respond_to do |format|
-      if @card.update_attributes(card_params)
-        format.html do
-          redirect_to cards_path, notice: "Карточка обновлена успешно"
-        end
-      else
-        format.html { render action: 'edit' }
-      end
+    if @card.update_attributes(card_params)
+      redirect_to cards_path, notice: "Карточка обновлена успешно"
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
-    Card.find(params[:id]).destroy
-    respond_to do |format|
-      format.html { redirect_to cards_path, notice: "Карточка удалена успешно" }
+    if Card.find(params[:id]).destroy
+      redirect_to cards_path, notice: "Карточка удалена успешно"
     end
   end
 
