@@ -36,9 +36,8 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    if Card.find(params[:id]).destroy
-      redirect_to cards_path, notice: "Карточка удалена успешно"
-    end
+    Card.find(params[:id]).destroy
+    redirect_to cards_path, notice: "Карточка удалена успешно"
   end
 
   private
