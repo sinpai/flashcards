@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'nokogiri'
+require 'open-uri'
+
+def words_parsing(doc)
+  @words, @translations = [], []
+  doc.xpath('//td[@class="bigLetter"]').each {|el| @words << el.text}
+  doc.xpath('//td[preceding-sibling::td[@class="bigLetter"]][1]').each {|el| @translations << el.text}
+  @words.length.times do |i|
+    Card.new(original_text: @words[i], translated_text: @translations[i]).save(validate: false)
+    print '.' if (i % 25).zero?
+  end
+end
+
+doc = Nokogiri::HTML(open('http://www.languagedaily.com/learn-german/vocabulary/common-german-words'))
+words_parsing(doc)
+links = doc.xpath("//ul[preceding-sibling::h3[contains(.,'Index of most common German words')]]/li/a")
+links.each do |link|
+  doc2 = Nokogiri::HTML(open('http://www.languagedaily.com' + link['href']))
+  words_parsing(doc2)
+end
