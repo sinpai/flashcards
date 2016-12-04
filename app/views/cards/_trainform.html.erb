@@ -1,18 +1,12 @@
-<%= form_for(@card) do |f| %>
-    <% if alert %>
-	<div class="alert alert-danger alert-dismissible" role="alert">
-	    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	    <h5><% alert %></h5>
-	</div>
-    <% end %>
-
-    <% if notice %>
-	<div class="alert alert-success alert-dismissible" role="alert">
-	    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	    <h5><% notice %></h5>
-    <% end %>
-    <%= f.label @card, :translated_text %>
-    <h5>Введите ваш перевод</h5>
-    <%#= f.text_field 'checktext' %>
-    <%= f.submit "Проверить" %>
-<% end %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+	<h3 class="panel-title"><%= @card.id %> | <%= @card.translated_text %></h3>
+    </div>
+    <div class="panel-body">
+	<%= form_tag check_card_path do %>
+	    <%= text_field_tag :answer, "", placeholder: "Ваш ответ", class: 'input' %>
+	    <%= hidden_field_tag :id, @card.id %>
+	    <%= submit_tag "Проверить" %>
+	<% end %>
+    </div>
+</div>
