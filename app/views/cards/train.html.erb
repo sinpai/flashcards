@@ -1,0 +1,9 @@
+<h1 class="page_header"> Тренировка карточек </h1>
+
+<%#%>= render partial: "cards/trainform" %><br />
+
+<h1><%= @card.translated_text %></h1>
+<%= byebug %>
+
+<%= link_to ' < Назад', cards_path, class: "btn btn-default btn-sm additional_btns" %> | 
+ 
