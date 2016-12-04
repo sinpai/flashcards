@@ -1,7 +1,7 @@
 # coding: utf-8
 class CardsController < ApplicationController
 
-  helper_method :show_random_card, :check_card
+  helper_method :undone_left
 
   def index
     @cards = Card.order(:id)
@@ -9,9 +9,6 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-  end
-
-  def show
   end
 
   def edit
@@ -45,17 +42,16 @@ class CardsController < ApplicationController
     redirect_to cards_path, notice: "Карточка удалена успешно"
   end
 
-  def train
-    @card = Card.on_review(Date.today + 7).first
-    byebug
+  def undone_left
+    Card.on_review(Date.today + 7).count
   end
 
   def check_card
-    if Card.find(params[:id]).original_text == params[:checktext]
+    if Card.find(params[:id]).original_text == params[:answer]
       Card.find(params[:id]).save
-      redirect_to cards_train_path, notice: 'Правильно!'
+      redirect_to check_card_path, notice: 'Правильно!'
     else
-      redirect_to cards_train_path, notice: 'Неправильно!'
+      redirect_to check_card_path, notice: 'Неправильно!'
     end
   end
 
