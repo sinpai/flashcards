@@ -1,8 +1,6 @@
 # coding: utf-8
 class CardsController < ApplicationController
 
-  helper_method :undone_left
-
   def index
     @cards = Card.order(:id)
   end
@@ -42,13 +40,10 @@ class CardsController < ApplicationController
     redirect_to cards_path, notice: "Карточка удалена успешно"
   end
 
-  def undone_left
-    Card.on_review(Date.today + 7).count
-  end
-
   def check_card
-    if Card.find(params[:id]).original_text == params[:answer]
-      Card.find(params[:id]).save
+    @card = Card.find(params[:id])
+    if @card.check_translation?(params[:answer])
+      @card.update_review_date
       redirect_to check_card_path, notice: 'Правильно!'
     else
       redirect_to check_card_path, notice: 'Неправильно!'
