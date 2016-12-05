@@ -15,4 +15,12 @@ class Card < ApplicationRecord
                  "перевод не должен быть таким же как изначальный текст")
     end
   end
+
+  def check_translation?(answer)
+    self.original_text == answer
+  end
+
+  def update_review_date
+    self.update_attributes(review_date: Date.today + 3)
+  end
 end
