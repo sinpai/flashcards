@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homepage#index'
 
-  get "cards" => 'cards#index'
   resources :cards
-  # controller :cards do
-  #   get 'new' => :new
-  #   post 'new' => :create
-  # end
+  post '/', to: 'cards#check_card', as: :check_card
 end
