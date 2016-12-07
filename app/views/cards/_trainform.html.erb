@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+	<h3 class="panel-title"><%= @card.id %> | <%= @card.translated_text %></h3>
+    </div>
+    <div class="panel-body">
+	<%= form_tag check_card_path do %>
+	    <%= text_field_tag :answer, "", placeholder: "Ваш ответ", class: 'input form-control' %><br />
+	    <%= hidden_field_tag :id, @card.id %>
+	    <%= submit_tag "Проверить", class: "btn btn-primary", type: "submit" %> | <%= link_to 'Следующая карточка', check_card_path %>
+	<% end %>
+    </div>
+</div>

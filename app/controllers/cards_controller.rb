@@ -40,9 +40,19 @@ class CardsController < ApplicationController
     redirect_to cards_path, notice: "Карточка удалена успешно"
   end
 
+  def check_card
+    @card = Card.find(params[:id])
+    if @card.check_translation?(params[:answer])
+      @card.update_review_date
+      redirect_to check_card_path, notice: 'Правильно!'
+    else
+      redirect_to check_card_path, notice: 'Неправильно!'
+    end
+  end
+
   private
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :checktext)
   end
 end
