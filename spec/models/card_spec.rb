@@ -17,8 +17,7 @@ describe Card do
     expect(card.errors[:translated_text]).to include("can't be blank")
   end
   it "is valid with correct review date after save" do
-    card = build(:card, review_date: nil)
-    card.save
+    card = create(:card, review_date: nil)
     card.valid?
     expect(card.review_date).to eq(Date.today + 3)
   end
@@ -45,13 +44,11 @@ describe Card do
     expect(card1).not_to equal(card2)
   end
   it "should correctly check translation" do
-    card = build(:card, original_text: "house", translated_text: "Дом")
-    card.save
+    card = create(:card, original_text: "house", translated_text: "Дом")
     expect(card.check_translation?("building")).to be false
   end
   it "should correctly update review date" do
-    card = build(:card)
-    card.save
+    card = create(:card)
     card.review_date = Date.today
     card.valid?
     card.update_review_date
