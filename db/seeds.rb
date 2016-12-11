@@ -27,6 +27,13 @@ require 'open-uri'
 #   words_parsing(doc2)
 # end
 
+300.times do |i|
+  User.create!(
+    email: "#{FFaker::Internet.email}#{i}",
+    password: "qweasd"
+  )
+end
+
 1000.times do |i|
   Card.create!(
     original_text: "#{FFaker::LoremFR.word}#{i}",
@@ -34,9 +41,4 @@ require 'open-uri'
   )
 end
 
-300.times do |i|
-  User.create!(
-    email: "#{FFaker::Internet.email}#{i}",
-    password: "qweasd"
-  )
-end
+
