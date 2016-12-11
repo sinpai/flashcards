@@ -33,3 +33,10 @@ require 'open-uri'
     translated_text: "#{FFaker::Music.song}#{i}"
   )
 end
+
+300.times do |i|
+  User.create!(
+    email: "#{FFaker::Internet.email}#{i}",
+    password: "qweasd"
+  )
+end
