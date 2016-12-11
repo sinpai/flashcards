@@ -36,7 +36,7 @@ end
 
 1000.times do |i|
   Card.create!(
-    original_text: "#{FFaker::Faker::Company.name}#{i}",
+    original_text: "#{FFaker::Company.name}#{i}",
     translated_text: "#{FFaker::Music.song}#{i}",
     user_id: "#{rand(100)}"
   )
