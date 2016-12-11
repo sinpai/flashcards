@@ -1,7 +1,7 @@
 # coding: utf-8
 # Model for Cards functionality
 class Card < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :original_text, :translated_text, presence: true
   validates :original_text, uniqueness: true

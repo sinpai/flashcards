@@ -27,7 +27,7 @@ require 'open-uri'
 #   words_parsing(doc2)
 # end
 
-300.times do |i|
+100.times do |i|
   User.create!(
     email: "#{FFaker::Internet.email}#{i}",
     password: "qweasd"
@@ -36,8 +36,9 @@ end
 
 1000.times do |i|
   Card.create!(
-    original_text: "#{FFaker::LoremFR.word}#{i}",
-    translated_text: "#{FFaker::Music.song}#{i}"
+    original_text: "#{FFaker::LoremFR.word}#{rand(100) + i}",
+    translated_text: "#{FFaker::Music.song}#{i}",
+    user_id: "#{rand(100)}"
   )
 end
 
