@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-	<h3 class="panel-title"><%= @card.id %> | <%= @card.translated_text %></h3>
+	      <h3 class="panel-title"><span id='cardid'><%= @card.id %></span> | <span id="translation"><%= @card.translated_text %></span></h3>
     </div>
     <div class="panel-body">
 	<%= form_tag check_card_path do %>
