@@ -21,7 +21,7 @@ feature 'Cards functionality' do
 
   scenario "checking card translation" do
 
-    #Find correct translation for displayed word
+    # Find correct translation for displayed word
     ortext = Card.find(find('//span[@id="cardid"]').text).original_text
 
     fill_in 'answer', with: ortext
