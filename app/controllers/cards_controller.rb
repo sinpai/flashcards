@@ -15,6 +15,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
+    @card.user_id = current_user.id
     if @card.save
       redirect_to edit_card_path(@card), notice: 'Card successfully created'
     else
