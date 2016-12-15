@@ -13,12 +13,12 @@ Rails.application.config.sorcery.configure do |config|
 
   config.twitter.key = "3VvxUg7cCiP0phoP7LSGGM182"
   config.twitter.secret = "J7lrNY9Fo2nJVgm3GCwK0VPfF3JeRUnzlgxyzAkF5ETfGOIZWD"
-  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  config.twitter.callback_url = "https://flashcards-sinpai.herokuapp.com/oauth/callback?provider=twitter"
   config.twitter.user_info_mapping = {:username => "screen_name"}
 
   config.facebook.key = "457421114645526"
   config.facebook.secret = "0b075f9ede67d4de4ac4eaa01d8af0fe"
-  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
+  config.facebook.callback_url = "https://flashcards-sinpai.herokuapp.com/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
   config.facebook.scope = "email,offline_access,user_hometown,user_interests,user_likes" #etc
   config.facebook.display = "popup"
