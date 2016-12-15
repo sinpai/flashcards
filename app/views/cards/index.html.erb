@@ -8,19 +8,21 @@
 	      <th>Перевод</th>
 	      <th>Дата проверки</th>
 	      <th>Создано</th>
+        <th>Действия</th>
 	  </tr>
       </thead>
       <tbody>
+    <% (params[:user_id] = current_user.id) if current_user %>
 	  <% @cards.each_with_index do |card, index| %>
-	      <tr>
+	      <tr id="wordline">
 		  <th scope="row"><%= index+1 %></th>
-		  <td><%= link_to card.original_text, edit_card_path(card) %></td>
+		  <td><%= link_to card.original_text, edit_card_path(card), id: "origtext" %></td>
 		  <td><%= card.translated_text %></td>
 		  <td><%= card.review_date.nil? ? '-' : card.review_date.to_time.strftime("%d/%m/%Y") %></td>
 		  <td><%= card.created_at.to_time.strftime("%d/%m/%Y") %></td>
+      <td><% if current_user %><%= button_to 'Добавить карточку', add_card_path(card), remote: true, id: "addcard" %><% end %></td>
 	      </tr>
 	  <% end %>
       </tbody>
   </table>
 </section>
-	    
