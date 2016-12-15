@@ -15,21 +15,17 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-
-    respond_to do |format|
-      if @card.save
-        format.html { redirect_to cards_path,
-                      notice: 'Card successfully created' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @card.save
+      redirect_to edit_card_path(@card), notice: 'Card successfully created'
+    else
+      render action: 'new'
     end
   end
 
   def update
     @card = Card.find(params[:id])
     if @card.update_attributes(card_params)
-      redirect_to cards_path, notice: "Карточка обновлена успешно"
+      redirect_to edit_card_path(@card), notice: "Карточка обновлена успешно"
     else
       render action: 'edit'
     end
@@ -37,7 +33,7 @@ class CardsController < ApplicationController
 
   def destroy
     Card.find(params[:id]).destroy
-    redirect_to cards_path, notice: "Карточка удалена успешно"
+    redirect_to user_path, notice: "Карточка удалена успешно"
   end
 
   def check_card
@@ -50,9 +46,20 @@ class CardsController < ApplicationController
     end
   end
 
+  def add
+    ucard = Card.find(params[:id]).dup
+    if current_user.cards.exists?(original_text: ucard.original_text)
+      redirect_to cards_path, notice: "Card have already been added"
+    else
+      ucard.user_id = current_user.id
+      ucard.save(validate: false)
+      redirect_to cards_path, notice: "Card added successfully"
+    end
+  end
+
   private
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date, :checktext)
+    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :checktext, :user_id)
   end
 end

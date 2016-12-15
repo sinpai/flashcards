@@ -7,6 +7,7 @@ class Card < ApplicationRecord
   validates :original_text, uniqueness: true
   validate :original_text_should_not_be_eq_translated_text
   before_save { self.review_date = Date.today + 3 }
+  scope :not_users, -> { where("user_id = NULL") }
   scope :on_review, ->(time) { where("review_date < ?", time) }
   scope :random_card, -> { order("RANDOM()").first }
 

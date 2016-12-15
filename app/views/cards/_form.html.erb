@@ -13,8 +13,8 @@
 	    </ul>
 	</div>
     <% end %>
-
     <%= f.input :original_text, label: "Текст", placeholder: "Текст", input_html: { :style=> 'width: 50%;', :rows => 1} %>
     <%= f.input :translated_text, label: "Перевод", placeholder: "Перевод", input_html: { :style=> 'width: 50%;', :rows => 1} %>
+    <% if current_user %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
     <%= f.button :submit %><br />
 <% end %>
