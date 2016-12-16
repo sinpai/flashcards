@@ -9,16 +9,16 @@ Rails.application.config.sorcery.configure do |config|
 
   config.external_providers = [:twitter, :facebook]
 
-  #add this file to .gitignore BEFORE putting any secret keys in here, or use a system like Figaro to abstract it!!! 
+  #add this file to .gitignore BEFORE putting any secret keys in here, or use a system like Figaro to abstract it!!!
 
-  config.twitter.key = "3VvxUg7cCiP0phoP7LSGGM182"
-  config.twitter.secret = "J7lrNY9Fo2nJVgm3GCwK0VPfF3JeRUnzlgxyzAkF5ETfGOIZWD"
-  config.twitter.callback_url = "https://flashcards-sinpai.herokuapp.com/oauth/callback?provider=twitter"
-  config.twitter.user_info_mapping = {:username => "screen_name"}
+  config.twitter.key = "#{Rails.application.secrets.sorcery_twitter_key}"
+  config.twitter.secret = "#{Rails.application.secrets.sorcery_twitter_secret}"
+  config.twitter.callback_url = "#{Rails.application.secrets.sorcery_twitter_callback_url}"
+  config.twitter.user_info_mapping = {email: "screen_name"}
 
-  config.facebook.key = "457421114645526"
-  config.facebook.secret = "0b075f9ede67d4de4ac4eaa01d8af0fe"
-  config.facebook.callback_url = "https://flashcards-sinpai.herokuapp.com/oauth/callback?provider=facebook"
+  config.facebook.key = "#{Rails.application.secrets.sorcery_facebook_key}"
+  config.facebook.secret = "#{Rails.application.secrets.sorcery_facebook_secret}"
+  config.facebook.callback_url = "#{Rails.application.secrets.sorcery_facebook_callback_url}"
   config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
   config.facebook.scope = "email,offline_access,user_hometown,user_interests,user_likes" #etc
   config.facebook.display = "popup"

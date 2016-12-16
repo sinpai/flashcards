@@ -12,4 +12,13 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true
+
+  def has_linked_twitter?
+    authentications.where(provider: 'twitter').present?
+  end
+
+  def has_linked_facebook?
+    authentications.where(provider: 'facebook').present?
+  end
+
 end
