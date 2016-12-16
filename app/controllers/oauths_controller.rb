@@ -35,7 +35,8 @@ class OauthsController < ApplicationController
           auto_login(@user)
           redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
         rescue => error
-          redirect_to root_path, :alert => "Failed to login from #{provider.titleize}! #{error.backtrace}"
+          throw error
+          redirect_to root_path, :alert => "Failed to login from #{provider.titleize}!"
         end
       end
     end

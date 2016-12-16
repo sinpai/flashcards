@@ -19,8 +19,9 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.key = "#{Rails.application.secrets.sorcery_facebook_key}"
   config.facebook.secret = "#{Rails.application.secrets.sorcery_facebook_secret}"
   config.facebook.callback_url = "#{Rails.application.secrets.sorcery_facebook_callback_url}"
-  config.facebook.user_info_mapping = {:email => "email", :name => "name", :username => "username", :hometown => "hometown/name"} #etc
-  config.facebook.scope = "email,offline_access,user_hometown,user_interests,user_likes" #etc
+  config.facebook.user_info_mapping = {email: "name"} #etc
+  # config.facebook.user_info_path = "me?fields=email"
+  # config.facebook.scope = "email" #etc
   config.facebook.display = "popup"
 
   # -- core --
