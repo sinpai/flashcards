@@ -47,17 +47,6 @@ class CardsController < ApplicationController
     end
   end
 
-  def add
-    ucard = Card.find(params[:id]).dup
-    if current_user.cards.exists?(original_text: ucard.original_text)
-      redirect_to cards_path, notice: "Card have already been added"
-    else
-      ucard.user_id = current_user.id
-      ucard.save(validate: false)
-      redirect_to cards_path, notice: "Card added successfully"
-    end
-  end
-
   private
 
   def card_params
