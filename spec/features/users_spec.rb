@@ -59,23 +59,4 @@ feature 'Users functionality' do
     expect(page).to have_content('Мои карточки')
     expect(page).to have_content(@testword)
   end
-
-  scenario "adding cards from dictionary" do
-
-    login
-    click_link 'Все карточки'
-
-    #Selecting random word at the table
-    within :xpath, "(//tr[@id='wordline'])[#{rand(900)}]" do
-      click_button 'Добавить карточку'
-
-      #Copying word to compare
-      @added_word = find(:id, 'origtext').text
-    end
-    expect(page).to have_content('Card added successfully')
-
-    #Comparing it in My Cards
-    click_link @logined_user
-    expect(page).to have_content(@added_word)
-  end
 end
