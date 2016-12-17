@@ -3,6 +3,15 @@ require 'rails_helper'
 
 feature 'Cards functionality' do
 
+  def login
+    click_link 'Login'
+    within '/html/body/form' do
+      fill_in 'email', with: User.find(10).email
+      fill_in 'password', with: 'qweasd'
+      click_button 'Login'
+    end
+  end
+
   before (:each) do
     visit root_path
     @testword = 'test' + rand(10000).to_s
@@ -10,6 +19,7 @@ feature 'Cards functionality' do
 
   scenario "adds new card" do
 
+    login
     click_link 'Добавить карточку'
 
     fill_in 'card_original_text', with: @testword

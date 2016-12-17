@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'sorcery'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+gem 'ffaker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -36,9 +39,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', "~> 3.1.0"
   gem 'factory_girl_rails', "~> 4.4.1"
-  gem 'ffaker'
   gem 'poltergeist'
   gem 'capybara-screenshot'
+  gem 'dotenv-rails'
 end
 
 group :development do

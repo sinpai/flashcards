@@ -5,6 +5,6 @@ FactoryGirl.define do
     original_text { FFaker::Food.ingredient }
     translated_text { FFaker::Food.fruit }
     review_date Date.today
-    user { rand(100).to_s }
+    user
   end
 end
