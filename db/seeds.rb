@@ -30,7 +30,8 @@ require 'open-uri'
 100.times do |i|
   User.create!(
     email: "#{FFaker::Internet.email}#{i}",
-    password: "qweasd"
+    password: "qweasd",
+    password_confirmation: "qweasd"
   )
 end
 
