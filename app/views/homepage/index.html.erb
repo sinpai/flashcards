@@ -1,4 +1,9 @@
-
-<h4>Тренировка карточек</h4>
-<%= render partial: "cards/trainform" %>
-	
+<div class="media">
+    <div class="media-left">
+        <%= image_tag @card.picture.url if @card.picture? %>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">Тренировка карточек</h4>
+        <%= render partial: "cards/trainform" %>
+    </div>
+</div>
