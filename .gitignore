@@ -9,6 +9,7 @@
 /config/database.yml
 /config/secrets.yml
 /.env
+/public/uploads
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

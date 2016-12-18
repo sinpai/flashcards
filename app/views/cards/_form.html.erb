@@ -13,7 +13,20 @@
 	    </ul>
 	</div>
     <% end %>
-    <%= f.input :original_text, label: "Текст", placeholder: "Текст", input_html: { :style=> 'width: 50%;', :rows => 1} %>
-    <%= f.input :translated_text, label: "Перевод", placeholder: "Перевод", input_html: { :style=> 'width: 50%;', :rows => 1} %>
-    <%= f.button :submit %><br />
+    <div class="media">
+        <div class="media-left">
+            <%= image_tag @card.picture.url if @card.picture? %>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">
+                <%= @card.original_text %>
+            </h4><br />
+                <%= f.input :original_text, label: "Текст", placeholder: "Текст", input_html: { :style=> 'width: 50%;', :rows => 1} %>
+                <%= f.input :translated_text, label: "Перевод", placeholder: "Перевод", input_html: { :style=> 'width: 50%;', :rows => 1} %>
+                <%= f.input :picture, as: :file, label: 'Загрузите файл', class: "btn btn-default" %><br />
+            <%= f.input :remote_picture_url, label: 'или вставьте URL-картинки', input_html: { :style=> 'width: 50%;', :rows => 1} %>
+            <%= f.button :submit %><br />
+        </div>
+    </div>
 <% end %>
+
