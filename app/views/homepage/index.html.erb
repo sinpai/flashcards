@@ -1,4 +1,7 @@
-<div class="media">
+<% if @card.blank? %>
+    <h3>Нет карточек для учебы. <%= link_to 'Добавьте', new_card_path, class: "btn-link" %> несколько</h3>
+<% else %>
+  <div class="media">
     <div class="media-left">
         <%= image_tag @card.picture.url if @card.picture? %>
     </div>
@@ -6,4 +9,5 @@
         <h4 class="media-heading">Тренировка карточек</h4>
         <%= render partial: "cards/trainform" %>
     </div>
-</div>
+  </div>
+<% end %>

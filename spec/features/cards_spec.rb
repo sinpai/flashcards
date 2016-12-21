@@ -22,9 +22,10 @@ feature 'Cards functionality' do
     visit root_path
     @testword = 'test' + rand(10000).to_s
     @testpack = 'test2' + rand(10000).to_s
+    @date3ago = (Date.today - 6).strftime("%-d")
   end
 
-  scenario "adds new card" do
+  scenario "adds new card and checking card translation" do
 
     login
     add_pack
@@ -32,15 +33,13 @@ feature 'Cards functionality' do
 
     fill_in 'card_original_text', with: @testword
     fill_in 'card_translated_text', with: @testword.reverse!
+    select @date3ago, from: 'card_review_date_3i'
     select @testpack, from: 'card_pack_id'
     click_button 'Create Card'
 
+    screenshot_and_save_page
     expect(page).to have_content(@testword)
-  end
 
-  scenario "checking card translation" do
-
-    login
     visit root_path
     # Find correct translation for displayed word
     ortext = Card.find(find('//span[@id="cardid"]').text).original_text
