@@ -2,10 +2,11 @@
 # Model for Cards functionality
 class Card < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :pack
 
   mount_uploader :picture, PictureUploader
 
-  validates :original_text, :translated_text, presence: true
+  validates :original_text, :translated_text, :pack_id, presence: true
   validates :original_text, uniqueness: true
   validate :original_text_should_not_be_eq_translated_text
   before_save { self.review_date = Date.today + 3 }

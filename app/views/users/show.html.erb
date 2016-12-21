@@ -1,6 +1,30 @@
 <%= render partial: 'shared/session_links' %>
 
-<h1>Мои карточки</h1>
+<h3 class="page-header">Мои колоды</h3>
+<section class="all-packs">
+    <table class="table table-striped">
+        <thead>
+	          <tr>
+	              <th>#</th>
+	              <th>Текст</th>
+                <th>Действия</th>
+                <th></th>
+	          </tr>
+        </thead>
+        <tbody>
+	          <% current_user.packs.each_with_index do |pack, index| %>
+	              <tr>
+		                <th scope="row"><%= index+1 %></th>
+		                <td><%= link_to pack.title, pack_path(pack) %></td>
+                    <td><%= button_to 'Set as default', set_pack_path(pack), class: "btn-link" %></td>
+		                <td><%= link_to 'Удалить', pack_path(pack), method: :delete %></td>
+	              </tr>
+	          <% end %>
+        </tbody>
+    </table>
+</section>
+<%= button_to 'Создать новую колоду', new_pack_path, class: "btn btn-default navbar-btn alert-info", id: "new_pack" %>
+<h3 class="page-header">Мои карточки</h3>
 <section class="all-cards">
     <table class="table table-striped">
         <thead>
@@ -9,6 +33,7 @@
 	              <th>Текст</th>
 	              <th>Перевод</th>
 	              <th>Дата проверки</th>
+                <th>Колода</th>
 	              <th>Действия</th>
 	          </tr>
         </thead>
@@ -19,9 +44,11 @@
 		                <td><%= link_to card.original_text, edit_card_path(card) %></td>
 		                <td><%= card.translated_text %></td>
 		                <td><%= card.review_date.nil? ? '-' : card.review_date.to_time.strftime("%d/%m/%Y") %></td>
+                    <td><%= card.pack_id %>
 		                <td><%= link_to 'Удалить', card_path(card), method: :delete %></td>
 	              </tr>
 	          <% end %>
         </tbody>
     </table>
 </section>
+
