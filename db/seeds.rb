@@ -35,11 +35,18 @@ require 'open-uri'
   )
 end
 
+100.times do |i|
+  Pack.create!(
+    title: "#{FFaker::Lorem.word}#{i}"
+  )
+end
+
 1000.times do |i|
   Card.create!(
     original_text: "#{FFaker::Company.name}#{i}",
     translated_text: "#{FFaker::Music.song}#{i}",
-    user_id: "#{rand(100)}"
+    user_id: "#{rand(100)}",
+    pack_id: "#{rand(100)}"
   )
 end
 
