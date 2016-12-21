@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def current_pack
-    self.packs.find("#{self.default_pack}")
+    packs.find(default_pack)
   end
 end
 
