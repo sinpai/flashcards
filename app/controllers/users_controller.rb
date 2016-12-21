@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @packs = User.find(params[:id]).packs.all
   end
 
   # GET /users/new
