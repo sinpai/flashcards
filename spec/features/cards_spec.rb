@@ -40,6 +40,8 @@ feature 'Cards functionality' do
 
   scenario "checking card translation" do
 
+    login
+    visit root_path
     # Find correct translation for displayed word
     ortext = Card.find(find('//span[@id="cardid"]').text).original_text
 
