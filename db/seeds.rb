@@ -10,7 +10,7 @@ require 'nokogiri'
 require 'open-uri'
 
 # def words_parsing(doc)
-#   @words, @translations = [], []
+#   @words, @tra#{FFaker::Lorem.word}nslations = [], []
 #   doc.xpath('//td[@class="bigLetter"]').each {|el| @words << el.text}
 #   doc.xpath('//td[preceding-sibling::td[@class="bigLetter"]][1]').each {|el| @translations << el.text}
 #   @words.length.times do |i|
@@ -38,7 +38,7 @@ end
 100.times do |i|
   Pack.create!(
     title: "#{FFaker::Lorem.word}#{FFaker::Lorem.word}#{i*312}",
-    user_id: "#{rand(100)}"
+    user_id: "#{1 + rand(99)}"
   )
 end
 
@@ -46,8 +46,8 @@ end
   Card.create!(
     original_text: "#{FFaker::Company.name}#{i}",
     translated_text: "#{FFaker::Music.song}#{i}",
-    user_id: "#{rand(100)}",
-    pack_id: "#{1 + rand(100)}"
+    user_id: "#{1 + rand(99)}",
+    pack_id: "#{1 + rand(99)}"
   )
 end
 
