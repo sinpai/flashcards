@@ -37,7 +37,7 @@ end
 
 100.times do |i|
   Pack.create!(
-    title: "#{FFaker::Lorem.word}#{FFaker::Lorem.word}#{i*312}"
+    title: "#{FFaker::Lorem.word}#{FFaker::Lorem.word}#{i*312}",
     user_id: "#{rand(100)}"
   )
 end
