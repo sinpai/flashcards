@@ -14,9 +14,16 @@ feature 'Users functionality' do
     end
   end
 
+  def add_pack
+    visit new_pack_path
+    fill_in 'pack_title', with: @testpack
+    click_button 'Create Pack'
+  end
+
   before (:each) do
     visit root_path
     @testword = 'test' + rand(10000).to_s
+    @testpack = 'test2' + rand(10000).to_s
   end
 
   scenario "registration" do
@@ -49,10 +56,12 @@ feature 'Users functionality' do
   scenario "adding new cards to user" do
 
     login
+    add_pack
     click_link 'Добавить карточку'
 
     fill_in 'card_original_text', with: @testword
     fill_in 'card_translated_text', with: @testword.to_s.reverse
+    select @testpack, from: 'card_pack_id'
     click_button 'Create Card'
 
     click_link @logined_user

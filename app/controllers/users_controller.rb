@@ -1,5 +1,6 @@
+# coding: utf-8
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :set_default_pack]
 
   # GET /users
   # GET /users.json
@@ -49,6 +50,15 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
+  end
+
+  def set_default_pack
+    @user.default_pack = params[:id]
+    if @user.save
+      redirect_to @user, notice: 'Колода установлена как основная'
+    else
+      redirect_to @user, notice: 'Колода не была установлена как основная'
+    end
   end
 
   private
