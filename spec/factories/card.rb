@@ -6,5 +6,6 @@ FactoryGirl.define do
     translated_text { FFaker::Food.fruit }
     review_date Date.today
     user
+    pack
   end
 end

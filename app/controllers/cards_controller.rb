@@ -33,7 +33,7 @@ class CardsController < ApplicationController
 
   def destroy
     Card.find(params[:id]).destroy
-    redirect_to user_path, notice: "Карточка удалена успешно"
+    redirect_to user_path(current_user), notice: "Карточка удалена успешно"
   end
 
   def check_card
@@ -49,6 +49,6 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :checktext, :picture, :remote_picture_url, :user_id)
+    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :checktext, :picture, :remote_picture_url, :user_id, :pack_id)
   end
 end

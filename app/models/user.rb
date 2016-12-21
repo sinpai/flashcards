@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :cards
+  has_many :packs
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications
 
@@ -20,5 +21,4 @@ class User < ApplicationRecord
   def has_linked_facebook?
     authentications.where(provider: 'facebook').present?
   end
-
 end
