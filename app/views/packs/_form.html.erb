@@ -1,0 +1,19 @@
+<%= simple_form_for(@pack) do |f| %>
+
+    <% if @pack.errors.any? %>
+	      <div class="alert alert-danger alert-dismissible" role="alert">
+	          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h5><%= pluralize(@pack.errors.count, "ошибка(-ок)") %>
+		            выявлено при сохранении формы:</h5>
+
+	          <ul>
+		            <% @pack.errors.full_messages.each do |msg| %>
+		                <li><%= msg %></li>
+		            <% end %>
+	          </ul>
+	      </div>
+    <% end %>
+            <%= f.input :title, label: "Название", placeholder: "Введите название", input_html: { :style=> 'width: 50%;', :rows => 1} %>
+            <%= f.button :submit %><br />
+<% end %>
+

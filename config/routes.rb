@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   resources :cards
   resources :users
   resources :user_sessions
+  resources :packs
 
   post '/', to: 'cards#check_card', as: :check_card
+  post '/users/', to: 'users#set_default_pack', as: :set_pack
+  post '/packs/new', to: 'packs#new', as: :new_pack_new
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
