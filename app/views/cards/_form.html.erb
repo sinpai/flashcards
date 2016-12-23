@@ -24,6 +24,8 @@
             <%= f.input :original_text, label: "Текст", placeholder: "Текст", input_html: { :style=> 'width: 50%;', :rows => 1} %>
             <%= f.input :translated_text, label: "Перевод", placeholder: "Перевод", input_html: { :style=> 'width: 50%;', :rows => 1} %>
             <%= f.input :pack_id, collection: current_user.packs.collect { |p| [ p.title, p.id ] }, label: "Колода",  input_html: { :style=> 'width: 20%;', :rows => 1} %>
+            <%= f.input :review_date, as: :date, label: 'Дата пересмотра', default: (Date.today + 3), start_year: Date.today.year,
+            end_year: Date.today.year + 2, order: [:day, :month, :year] %>
             <%= f.input :picture, as: :file, label: 'Загрузите файл', class: "btn btn-default" %><br />
             <%= f.input :remote_picture_url, label: 'или вставьте URL-картинки', input_html: { :style=> 'width: 50%;', :rows => 1} %>
             <%= f.button :submit %><br />

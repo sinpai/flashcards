@@ -6,10 +6,9 @@ class Card < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  validates :original_text, :translated_text, :pack_id, presence: true
+  validates :original_text, :translated_text, :pack_id, :review_date, presence: true
   validates :original_text, uniqueness: true
   validate :original_text_should_not_be_eq_translated_text
-  before_save { self.review_date = Date.today + 3 }
   scope :on_review, ->(time) { where("review_date < ?", time) }
   scope :random_card, -> { order("RANDOM()").first }
 

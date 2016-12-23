@@ -16,11 +16,6 @@ describe Card do
     card.valid?
     expect(card.errors[:translated_text]).to include("can't be blank")
   end
-  it "is valid with correct review date after save" do
-    card = create(:card, review_date: nil)
-    card.valid?
-    expect(card.review_date).to eq(Date.today + 3)
-  end
   it "is invalid with dublicated original text" do
     card = build(:card, original_text: 'test', translated_text: 'test')
     card.valid?

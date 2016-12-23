@@ -46,6 +46,7 @@ end
   Card.create!(
     original_text: "#{FFaker::Company.name}#{i}",
     translated_text: "#{FFaker::Music.song}#{i}",
+    review_date: Date.today + 3,
     user_id: "#{1 + rand(99)}",
     pack_id: "#{1 + rand(99)}"
   )
