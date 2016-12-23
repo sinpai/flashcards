@@ -8,7 +8,7 @@ class HomepageController < ApplicationController
     @card = if current_user.default_pack
               current_user.current_pack.cards.random_card
             else
-              current_user.cards.on_review(Date.today + 7).random_card
+              current_user.cards.on_review(Date.today).random_card
             end
   end
 
