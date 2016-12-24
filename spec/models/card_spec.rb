@@ -47,6 +47,6 @@ describe Card do
     card.review_date = Date.today
     card.valid?
     card.update_review_date(2)
-    expect(card.review_date.to_date).to eq(DateTime.current.next_day(3))
+    expect(card.review_date.to_date).to eq(DateTime.current.next_day(3).to_date)
   end
 end
