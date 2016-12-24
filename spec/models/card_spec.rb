@@ -46,7 +46,7 @@ describe Card do
     card = create(:card)
     card.review_date = Date.today
     card.valid?
-    card.update_review_date
-    expect(card.review_date).to eq(Date.today + 3)
+    card.update_review_date(2)
+    expect(card.review_date.to_date).to eq(Date.today + 3)
   end
 end
