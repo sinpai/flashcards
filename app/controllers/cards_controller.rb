@@ -39,18 +39,8 @@ class CardsController < ApplicationController
   def check_card
     @card = Card.find(params[:id])
     if @card.check_translation?(params[:answer])
-      if @card.status.blank?
-        @card.status = 1
-      else
-        @card.status += 1 unless @card.status.eql?(5)
-      end
-      @card.update_review_date(@card.status)
       redirect_to check_card_path, notice: 'Правильно!'
     else
-      unless @card.status.blank?
-        @card.status -= 1 unless @card.status.eql?(1)
-        @card.update_review_date(@card.status)
-      end
       redirect_to check_card_path, notice: 'Неправильно!'
     end
   end
