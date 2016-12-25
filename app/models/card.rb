@@ -9,8 +9,7 @@ class Card < ApplicationRecord
   validates :original_text, :translated_text, :pack_id, :review_date, presence: true
   validates :original_text, uniqueness: true
   validate :original_text_should_not_be_eq_translated_text
-  before_save { self.review_date = self.review_date.to_datetime.utc }
-  scope :on_review, ->(time) { where("review_date < ?", time) }
+  scope :on_review, -> { where("review_date < ?", DateTime.current) }
   scope :random_card, -> { order("RANDOM()").first }
 
   DAYS = [0.5, 3, 7, 14, 30].freeze
@@ -28,7 +27,21 @@ class Card < ApplicationRecord
   end
 
   def check_translation?(answer)
-    self.original_text == answer
+    if original_text == answer
+      if status.blank?
+        self.status = 1
+      elsif status < 5
+        self.status += 1
+      end
+      update_review_date(self.status)
+      true
+    else
+      unless self.status.blank? || self.status.eql?(0)
+        self.status -= 1 if status > 0
+        update_review_date(self.status)
+      end
+      false
+    end
   end
 
   def new_date(status)
@@ -39,12 +52,14 @@ class Card < ApplicationRecord
     self.update_attributes(review_date: new_date(status))
   end
 
+
+
   def review_diff
     if self.review_date < Time.zone.now
       "на проверке"
     else
       diff = TimeDifference.between(self.review_date, Time.zone.now).in_general
-      "#{diff[:days]}д #{diff[:hours]}ч #{diff[:minutes]}мин"
+      "#{diff[:weeks]}нед #{diff[:days]}д #{diff[:hours]}ч #{diff[:minutes]}мин"
     end
   end
 end
