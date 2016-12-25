@@ -34,8 +34,8 @@ describe Card do
     expect(card.errors[:original_text]).to include('has already been taken')
   end
   it "should randomly give cards that are on review" do
-    card1 = Card.on_review(Date.today).random_card
-    card2 = Card.on_review(Date.today).random_card
+    card1 = Card.on_review.random_card
+    card2 = Card.on_review.random_card
     expect(card1).not_to equal(card2)
   end
   it "should correctly check translation" do
