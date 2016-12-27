@@ -41,7 +41,6 @@ feature 'Cards functionality' do
     select @testpack, from: 'card_pack_id'
     click_button 'Create Card'
 
-    screenshot_and_save_page
     expect(page).to have_content(@testword)
 
     visit root_path
@@ -50,11 +49,10 @@ feature 'Cards functionality' do
     ortext = card_info.original_text
 
     fill_in 'answer', with: ortext
-    screenshot_and_save_page
     click_button 'Проверить'
 
     expect(page).to have_content('Правильно!')
-    expect(card_info.status).to eq(1)
+    expect(card_info.interval).to eq(1)
     expect(card_info.review_date).to be > DateTime.current
   end
 end

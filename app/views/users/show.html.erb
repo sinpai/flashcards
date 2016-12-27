@@ -43,7 +43,7 @@
 		                <th scope="row"><%= index+1 %></th>
 		                <td><%= link_to card.original_text, edit_card_path(card) %></td>
 		                <td><%= card.translated_text %></td>
-		                <td><%= card.review_date.nil? ? '-' : card.review_diff %></td>
+		                <td><%= card.review_date.nil? ? '-' : review_diff(card) %></td>
                     <td><%= card.pack_id %>
 		                <td><%= link_to 'Удалить', card_path(card), method: :delete %></td>
 	              </tr>
