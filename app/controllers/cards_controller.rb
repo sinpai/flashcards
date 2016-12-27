@@ -1,5 +1,8 @@
 # coding: utf-8
 class CardsController < ApplicationController
+  include ApplicationHelper
+
+  helper_method :review_diff
 
   def index
     @cards = Card.order(:id)
@@ -39,8 +42,10 @@ class CardsController < ApplicationController
   def check_card
     @card = Card.find(params[:id])
     if @card.check_translation?(params[:answer])
+      @card.check_success
       redirect_to check_card_path, notice: 'Правильно!'
     else
+      @card.check_failed
       redirect_to check_card_path, notice: 'Неправильно!'
     end
   end
