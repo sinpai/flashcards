@@ -21,5 +21,7 @@ module Flashcards
                        request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+    config.time_zone = 'Kyiv'
+    config.active_record.default_timezone = :local
   end
 end

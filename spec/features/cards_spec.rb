@@ -18,6 +18,10 @@ feature 'Cards functionality' do
     click_button 'Create Pack'
   end
 
+  def card_info
+    Card.find(@cardid)
+  end
+
   before (:each) do
     visit root_path
     @testword = 'test' + rand(10000).to_s
@@ -37,18 +41,18 @@ feature 'Cards functionality' do
     select @testpack, from: 'card_pack_id'
     click_button 'Create Card'
 
-    screenshot_and_save_page
     expect(page).to have_content(@testword)
 
     visit root_path
     # Find correct translation for displayed word
-    ortext = Card.find(find('//span[@id="cardid"]').text).original_text
+    @cardid = find('//span[@id="cardid"]').text
+    ortext = card_info.original_text
 
     fill_in 'answer', with: ortext
     click_button 'Проверить'
 
     expect(page).to have_content('Правильно!')
+    expect(card_info.interval).to eq(1)
+    expect(card_info.review_date).to be > DateTime.current
   end
-
-
 end
