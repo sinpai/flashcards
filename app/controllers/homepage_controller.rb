@@ -6,9 +6,9 @@ class HomepageController < ApplicationController
 
   def index
     @card = if current_user.default_pack
-              current_user.current_pack.cards.random_card
+              current_user.current_pack.cards.on_review.random_card
             else
-              current_user.cards.on_review(Date.today).random_card
+              current_user.cards.on_review.random_card
             end
   end
 

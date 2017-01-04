@@ -34,8 +34,8 @@ describe Card do
     expect(card.errors[:original_text]).to include('has already been taken')
   end
   it "should randomly give cards that are on review" do
-    card1 = Card.on_review(Date.today).random_card
-    card2 = Card.on_review(Date.today).random_card
+    card1 = Card.on_review.random_card
+    card2 = Card.on_review.random_card
     expect(card1).not_to equal(card2)
   end
   it "should correctly check translation" do
@@ -46,7 +46,7 @@ describe Card do
     card = create(:card)
     card.review_date = Date.today
     card.valid?
-    card.update_review_date
-    expect(card.review_date).to eq(Date.today + 3)
+    card.update_review_date(2)
+    expect(card.review_date.to_date).to eq(DateTime.current.next_day(3).to_date)
   end
 end
