@@ -46,7 +46,11 @@ class CardsController < ApplicationController
       redirect_to check_card_path, notice: 'Правильно!'
     else
       @card.check_failed
-      redirect_to check_card_path, notice: 'Неправильно!'
+      if @card.levenshtein_distance(params[:answer])
+        render('cards/train_failed')
+      else
+        redirect_to(check_card_path, notice: 'Неправильно!')
+      end
     end
   end
 

@@ -43,4 +43,8 @@ class Card < ApplicationRecord
   def update_review_date(interval)
     update_attributes(review_date: DAYS[interval].days.from_now)
   end
+
+  def levenshtein_distance(answer)
+    Levenshtein.distance(original_text, answer) < 0.3
+  end
 end
