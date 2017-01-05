@@ -26,7 +26,8 @@ feature 'Cards functionality' do
     visit root_path
     @testword = 'test' + rand(10000).to_s
     @testpack = 'test2' + rand(10000).to_s
-    @date3ago = (Date.today - 6).strftime("%-d")
+    @date3ago = 6.days.ago.strftime("%-d")
+    @yearago = 1.year.ago.strftime("%Y")
   end
 
   scenario "adds new card and checking card translation" do
@@ -38,6 +39,7 @@ feature 'Cards functionality' do
     fill_in 'card_original_text', with: @testword
     fill_in 'card_translated_text', with: @testword.reverse!
     select @date3ago, from: 'card_review_date_3i'
+    select @yearago, from: 'card_review_date_1i'
     select @testpack, from: 'card_pack_id'
     click_button 'Create Card'
 
