@@ -34,6 +34,7 @@ gem 'carrierwave', '~> 0.11.2'
 gem "fog-aws"
 gem "mini_magick"
 gem 'time_difference'
+gem 'levenshteinish'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
