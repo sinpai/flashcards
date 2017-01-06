@@ -35,6 +35,7 @@ gem "fog-aws"
 gem "mini_magick"
 gem 'time_difference'
 gem 'levenshteinish'
+gem 'whenever', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
