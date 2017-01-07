@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   def self.notify_pending_cards
     self.joins(:cards).where('review_date < ?', Date.today).distinct.each do |user|
-      NotificationsMailer.pending_cards(user)
+      NotificationsMailer.pending_cards(user).deliver_now
     end
   end
 end

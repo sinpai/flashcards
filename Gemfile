@@ -48,6 +48,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'capybara-screenshot'
   gem 'dotenv-rails'
+  gem 'letter_opener'
 end
 
 group :development do
