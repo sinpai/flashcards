@@ -35,6 +35,7 @@ gem "fog-aws"
 gem "mini_magick"
 gem 'time_difference'
 gem 'levenshteinish'
+gem 'whenever', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'capybara-screenshot'
   gem 'dotenv-rails'
+  gem 'letter_opener'
 end
 
 group :development do
