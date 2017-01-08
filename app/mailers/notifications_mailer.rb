@@ -1,7 +1,7 @@
 # coding: utf-8
 class NotificationsMailer < ApplicationMailer
 
-  default from: 'sinpaimonaco@yahoo.com'
+  default from: "sinpaimonaco@yahoo.com"
 
   def pending_cards(user)
     @user = user
