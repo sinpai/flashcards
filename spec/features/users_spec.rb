@@ -6,18 +6,18 @@ feature 'Users functionality' do
   useremail ||= FFaker::Internet.email
 
   def login
-    click_link 'Login'
+   find(:css, '#login').click
     within '/html/body/form' do
       fill_in 'email', with: @logined_user = User.find(10).email
       fill_in 'password', with: 'qweasd'
-      click_button 'Login'
+      click_on 'submit'
     end
   end
 
   def add_pack
     visit new_pack_path
     fill_in 'pack_title', with: @testpack
-    click_button 'Create Pack'
+    click_button 'Add pack'
   end
 
   before (:each) do
@@ -28,12 +28,13 @@ feature 'Users functionality' do
 
   scenario "registration" do
 
-    click_link 'Register'
+    find(:css, '#signup').click
     within '//form[@id="new_user"]' do
       fill_in 'user_email', with: useremail
       fill_in 'user_password', with: 'password'
       fill_in 'user_password_confirmation', with: 'password'
-      click_button 'Create User'
+      select 'en', from: 'user_locale'
+      click_button 'Sign up'
     end
 
     expect(page).to have_content('User was successfully created.')
@@ -57,15 +58,15 @@ feature 'Users functionality' do
 
     login
     add_pack
-    click_link 'Добавить карточку'
+    click_link 'Add card'
 
     fill_in 'card_original_text', with: @testword
     fill_in 'card_translated_text', with: @testword.to_s.reverse
     select @testpack, from: 'card_pack_id'
-    click_button 'Create Card'
+    click_button 'Add card'
 
     click_link @logined_user
-    expect(page).to have_content('Мои карточки')
+    expect(page).to have_content('My cards')
     expect(page).to have_content(@testword)
   end
 end

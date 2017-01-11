@@ -23,5 +23,10 @@ module Flashcards
     end
     config.time_zone = 'Kyiv'
     config.active_record.default_timezone = :local
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    I18n.config.enforce_available_locales = false
+    I18n.available_locales = %i(ru en)
+    I18n.default_locale = :ru
   end
 end

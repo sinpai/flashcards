@@ -1,21 +1,21 @@
 <div style="text-align: left;">
     <% if logged_in? %>
-        Currently logged in as: <%= current_user.email %> |
+        <%= t('.currently')%><%= current_user.email %> |
 
         <% if current_user.has_linked_twitter? %>
-            <%= link_to 'Unlink your Twitter account', delete_oauth_path('twitter'), method: :delete %>
+            <%= link_to t('.unlink_twitter'), delete_oauth_path('twitter'), method: :delete %>
         <% else %>
-            <%= link_to 'Link your Twitter account', auth_at_provider_path(:provider => :twitter) %>
+            <%= link_to t('.link_twitter'), auth_at_provider_path(:provider => :twitter) %>
         <% end %> |
         <% if current_user.has_linked_facebook? %>
-            <%= link_to 'Unlink your Facebook account', delete_oauth_path('facebook'), method: :delete %>
+            <%= link_to t('.unlink_facebook'), delete_oauth_path('facebook'), method: :delete %>
         <% else %>
-            <%= link_to 'Link your Facebook account', auth_at_provider_path(:provider => :facebook) %>
+            <%= link_to t('.link_facebook'), auth_at_provider_path(:provider => :facebook) %>
         <% end %> |
 
-        <%= link_to 'Logout', logout_path %>
+        <%= link_to t('.logout'), logout_path %>
     <% else %>
-        <%= link_to 'Login using Twitter', auth_at_provider_path(provider: :twitter) %> |
-        <%= link_to 'Login using Facebook', auth_at_provider_path(provider: :facebook) %><br />
+        <%= link_to t('.login_twitter'), auth_at_provider_path(provider: :twitter) %> |
+        <%= link_to t('.login_facebook'), auth_at_provider_path(provider: :facebook) %><br />
     <% end %>
 </div>
