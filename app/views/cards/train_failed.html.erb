@@ -3,9 +3,9 @@
 	      <h3 class="panel-title"><span id='cardid'><%= @card.id %></span> | <span id="translation"><%= @card.translated_text %></span></h3>
     </div>
     <div class="panel-body">
-        <h4>Ваш ответ: <span class="text-danger"><%= params[:answer] %>.</span> Правильный ответ: <span class="text-info"><%= @card.original_text%></span></h4>
-        <h5>Наверное, вышла опечатка</h5>
+        <h4><%= t('.your_answer')%><span class="text-danger"><%= params[:answer] %>.</span><%= t('.right_answer')%><span class="text-info"><%= @card.original_text%></span></h4>
+        <h5><%= t('.mistake')%></h5>
         <hr>
-	      <%= link_to 'Следующая карточка', check_card_path %>
+	      <%= link_to <%= t('.next_card')%>, check_card_path %>
     </div>
 </div>

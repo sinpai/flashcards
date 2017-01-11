@@ -14,7 +14,7 @@ class OauthsController < ApplicationController
     if @user = login_from(provider)
       # user has already linked their account with github
 
-      flash[:notice] = "Logged in using #{provider.titleize}!"
+      flash[:notice] = I18n.t('controllers.oauths.log_success').concat(provider.titleize)
       redirect_to root_path
     else
       # User has not linked their account with Github yet. If they are logged in,
@@ -33,9 +33,9 @@ class OauthsController < ApplicationController
 
           reset_session # protect from session fixation attack
           auto_login(@user)
-          redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
+          redirect_to root_path, :notice => I18n.t('controllers.oauths.log_from').concat(provider.titleize)
         rescue
-          redirect_to root_path, :alert => "Failed to login from #{provider.titleize}!"
+          redirect_to root_path, :alert => I18n.t('controllers.oauths.log_fail').concat(provider.titleize)
         end
       end
     end
@@ -54,9 +54,9 @@ class OauthsController < ApplicationController
     authentication = current_user.authentications.find_by_provider(provider)
     if authentication.present?
       authentication.destroy
-      flash[:notice] = "You have successfully unlinked your #{provider.titleize} account."
+      flash[:notice] = I18n.t('controllers.oauths.unlink_success').concat(provider.titleize)
     else
-      flash[:alert] = "You do not currently have a linked #{provider.titleize} account."
+      flash[:alert] = I18n.t('controllers.oauths.unlink_fail').concat(provider.titleize)
     end
 
     redirect_to root_path
@@ -70,9 +70,9 @@ class OauthsController < ApplicationController
       # You will also need to add a 'github_login' string column to the users table.
       #
       # @user.update_attribute(:github_login, @user_hash[:user_info]['login'])
-      flash[:notice] = "You have successfully linked your #{provider.titleize} account."
+      flash[:notice] = I18n.t('controllers.oauths.link_success').concat(provider.titleize)
     else
-      flash[:alert] = "There was a problem linking your #{provider.titleize} account."
+      flash[:alert] = I18n.t('controllers.oauths.link_fail').concat(provider.titleize)
     end
   end
 

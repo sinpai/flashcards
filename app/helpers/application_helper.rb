@@ -2,10 +2,10 @@
 module ApplicationHelper
   def review_diff(card)
     if card.review_date < Time.zone.now
-      "на проверке"
+      t('.on_review')
     else
       diff = TimeDifference.between(card.review_date, Time.zone.now).in_general
-      "#{diff[:weeks]}нед #{diff[:days]}д #{diff[:hours]}ч #{diff[:minutes]}мин"
+      "#{diff[:weeks]}#{t('.week')} #{diff[:days]}#{t('.day')} #{diff[:hours]}#{t('.hour')} #{diff[:minutes]}#{t('.minute')}"
     end
   end
 end

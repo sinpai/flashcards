@@ -15,6 +15,6 @@ class HomepageController < ApplicationController
   private
 
   def check_auth
-    redirect_to login_path, notice: "Вы должны быть залогинены" unless current_user
+    redirect_to login_path, notice: I18n.t('controllers.homepage.login_required') unless current_user
   end
 end

@@ -36,6 +36,7 @@ gem "mini_magick"
 gem 'time_difference'
 gem 'levenshteinish'
 gem 'whenever', require: false
+gem 'http_accept_language'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

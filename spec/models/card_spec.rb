@@ -19,7 +19,7 @@ describe Card do
   it "is invalid with dublicated original text" do
     card = build(:card, original_text: 'test', translated_text: 'test')
     card.valid?
-    expect(card.errors[:original_text]).to include("перевод не должен быть таким же как изначальный текст")
+    expect(card.errors[:original_text]).to include("translation should not be the same as original text")
   end
   it "prevents from saving card with the same original text" do
     create(:card,

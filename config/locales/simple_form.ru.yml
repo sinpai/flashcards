@@ -1,0 +1,24 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'требуется'
+      mark: '*'
+    labels:
+      defaults:
+        email: 'Ваш емейл'
+        password: 'Ваш пароль'
+        password_confirmation: 'Подтверждение пароля'
+        locale: 'Язык интерфейса'
+      original_text: 'Слово или текст'
+      translated_text: 'Перевод'
+      pack: 'Колода'
+      review_date: 'Дата проверки'
+      picture: 'Загрузите вашу картинку'
+      picture_url: 'или дайте ссылку на картинку'
+    placeholders:
+      original_text: 'Введите слово'
+      translated_text: 'Введите перевод'
+    error_notification:
+      default_message: "Возникли следующие ошибки:"

@@ -31,7 +31,8 @@ require 'open-uri'
   User.create!(
     email: "#{FFaker::Internet.email}#{i}",
     password: "qweasd",
-    password_confirmation: "qweasd"
+    password_confirmation: "qweasd",
+    locale: 'en'
   )
 end
 
