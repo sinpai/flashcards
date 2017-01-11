@@ -19,7 +19,7 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.build(card_params)
     if @card.save
-      redirect_to edit_card_path(@card), notice: 'Card successfully created'
+      redirect_to edit_card_path(@card), notice: I18n.t('controllers.cards.created')
     else
       render action: 'new'
     end
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     if @card.update_attributes(card_params)
-      redirect_to edit_card_path(@card), notice: "Карточка обновлена успешно"
+      redirect_to edit_card_path(@card), notice: I18n.t('controllers.cards.updated')
     else
       render action: 'edit'
     end
@@ -36,20 +36,20 @@ class CardsController < ApplicationController
 
   def destroy
     Card.find(params[:id]).destroy
-    redirect_to user_path(current_user), notice: "Карточка удалена успешно"
+    redirect_to user_path(current_user), notice: I18n.t('controllers.cards.deleted')
   end
 
   def check_card
     @card = Card.find(params[:id])
     if @card.check_translation?(params[:answer])
       @card.check_success
-      redirect_to check_card_path, notice: 'Правильно!'
+      redirect_to check_card_path, notice: I18n.t('controllers.cards.right')
     else
       @card.check_failed
       if @card.levenshtein_distance(params[:answer])
         render('cards/train_failed')
       else
-        redirect_to(check_card_path, notice: 'Неправильно!')
+        redirect_to(check_card_path, notice: I18n.t('controllers.cards.wrong'))
       end
     end
   end

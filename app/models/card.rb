@@ -19,10 +19,10 @@ class Card < ApplicationRecord
       if original_text.mb_chars.downcase.to_s.chars ==
          translated_text.mb_chars.downcase.to_s.chars
         errors.add(:original_text,
-                   "перевод не должен быть таким же как изначальный текст")
+                   I18n.t('models.card.equal_translation'))
       end
     rescue NoMethodError
-      'original_text or translated_text are not defined'
+      I18n.t('models.card.text_not_defined')
     end
   end
 

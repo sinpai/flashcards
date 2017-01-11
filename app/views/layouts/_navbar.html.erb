@@ -4,24 +4,31 @@
           <a class="navbar-brand" href="#">
 		             <img class="icon icons8-Switch-Tracks navbar-nav navbar-left" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACHElEQVRogd1Z0XHCMAx9I2SEjpARMgIjeAQ2aEZgg2aDdgOyQdkANigb0B/rIoQhliwnwLvz5c7kRe8lkhwH4BqXODSwcKrFvIiRmssdWjEXAAevmGsbGb1jLp1au8jdKTgdrs27iSox8hu5rYKzjZzBW5TVSBt5JyWPnuL2kZglakSe33vGW8vIGUBTI95SqUW10St5WfVhFaXlUI4fMD2NXBwjt/MWpeUETCml6VQAsEFGc6hdI/Kc7Z15t9pYwsjwIK5bU6mRWi2AP2QWaQIN43deorQcbsJS3ADwHfk/XqK0HA8T1G75epMlxqNG5OAmSq+1mpEB13eyuhEZyMoJwoQFpc3hRpSWE/AkJrgoC4cbskA2BxO8aiQUcItqwtNI9+B6ixmRAubQAPhyCBoYfzBeI4kcUQ2m/cQ5k5NCQCUTwLwoaaLN4KTwyXjJvbcVHjVi4bjUw1sakYYk+Mub3NnlCqHmYNkdqpEStWHzXSZHYlETwK0ovqm5V5RzRlZ5ElLUPvFbaY1URSpYUJh4GiMECsZTapPJ4eDryxy/Cih4H4+jgkPgN6F3VacAidJ8tZBG6GPB6KwtCyULWWqcAXwsaYDgbcT1/ckCS3eh80M8ntxVGUCiRgPniMnQ6rCkBn+KpwqaVJA53iXmNAvjangbIwSLGOKYP+HUQIkRzZ/+1VFiZPW1A0jn+UvWyNsYIZSk1lPhZY38A7VHOOCgnkPXAAAAAElFTkSuQmCC" width="25" height="25">
 	        </a>
-          <a class="navbar-brand" href="/">Флэшкарточкер</a>
+          <a class="navbar-brand" href="/"><%= t('.title')%></a>
       </div>
       <div class="nav navbar-nav">
-           <%= link_to 'Все карточки', cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
+           <%= link_to t('.all_cards'), cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
 	        <% if current_user %>
-              <%= link_to 'Добавить карточку', new_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
+              <%= link_to t('.add_card'), new_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
           <% else %>
-              <%= link_to 'Добавить карточку', login_path, data: { confirm: "Please login first" }, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
+              <%= link_to t('.add_card'), login_path, data: { confirm: t('.login_first') }, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
           <% end %>
       </div>
       <div class="nav navbar-nav navbar-right">
+          <% if not current_user %>
+              <% if I18n.locale == I18n.default_locale %>
+                  <%= link_to image_tag('Great Britain-50.png'), :locale => 'en' %>
+              <% else %>
+                  <%= link_to image_tag('Russian Federation-50.png'), :locale => 'ru' %>
+              <% end %>
+          <% end %>
           <% if current_user %>
-              <em>Logged as: </em><%= link_to current_user.email, user_path(current_user.id), class: "btn-link" %>
-              <%= link_to "Edit Profile", edit_user_path(current_user.id), class: "btn btn-default navbar-btn" %>
-              <%= link_to "Logout", :logout, method: :post, class: "btn btn-default navbar-btn" %>
+              <em><%= t('.logged') %> </em><%= link_to current_user.email, user_path(current_user.id), class: "btn-link" %>
+              <%= link_to t('.edit'), edit_user_path(current_user.id), class: "btn btn-default navbar-btn" %>
+              <%= link_to t('.logout'), :logout, method: :post, class: "btn btn-default navbar-btn" %>
           <% else %>
-              <%= link_to "Register", new_user_path, class: "btn btn-default navbar-btn" %> |
-              <%= link_to "Login", :login, class: "btn btn-default navbar-btn" %>
+              <%= link_to t('.register'), new_user_path, class: "btn btn-default navbar-btn", id: 'signup' %> |
+              <%= link_to t('.login'), :login, class: "btn btn-default navbar-btn", id: 'login' %>
           <% end %>
       </div>
     </div>

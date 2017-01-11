@@ -1,6 +1,6 @@
-<h1>Login</h1>
+<h1><%= t('.title')%></h1>
 
 <%= render 'form' %>
 <%= render partial: 'shared/session_links' %>
 
-<%= link_to 'Back', user_sessions_path %>
+<%= link_to t('.back'), user_sessions_path %>

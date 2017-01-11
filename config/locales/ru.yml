@@ -1,0 +1,333 @@
+ru:
+  homepage:
+    index:
+      add_some: 'Добавьте'
+      missing_words1: 'Нет карточек для учебы. '
+      missing_words2: ' несколько'
+      title: 'Тренировка карточек'
+  cards:
+    trainform:
+      answer: 'Ваш ответ'
+      check: 'Проверить'
+      next_card: 'Следующая карточка'
+    form:
+      errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
+      original_text: 'Слово или текст'
+      translated_text: 'Перевод'
+      pack: 'Колода'
+      review_date: 'Дата проверки'
+      picture: 'Загрузите вашу картинку'
+      picture_url: 'или дайте ссылку на картинку'
+    new:
+      title: 'Новая карточка'
+      back: '< Назад'
+    edit:
+      title: 'Редактирование карточки'
+      sure: 'Вы уверены?'
+      back: '< Назад'
+      delete: 'Удалить'
+    index:
+      all_cards: 'Все карточки'
+      text: 'Текст'
+      translation: 'Перевод'
+      review_date: 'Дата проверки'
+      created: 'Создано'
+    train_failed:
+      your_answer: 'Ваш ответ: '
+      right_asnwer: ' Правильный ответ: '
+      mistake: 'Наверное, вышла опечатка'
+      next_card: 'Следующая карточка'
+  notifications_mailer:
+    pending_cards:
+      hello: 'Привет, '
+      sentence1: 'У тебя есть карточки, которые надо поучить еще'
+      sentence2: 'Заходи на сайт и продолжай учиться!'
+  packs:
+    form:
+      errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
+      name: "Название"
+      placeholder_name: "Введите название"
+    new:
+      title: 'Новая колода'
+      back: ' < Назад'
+    show:
+      title: 'Редактирование колоды'
+      set_default: 'Установить основной'
+      delete: 'Удалить колоду'
+      text: 'Текст'
+      translation: 'Перевод'
+      review_date: 'Дата проверки'
+      created: 'Создано'
+      delete_card: 'Удалить'
+      on_review: "на проверке"
+      week: 'нед'
+      day: 'д'
+      hour: 'ч'
+      minute: 'мин'
+  shared:
+    session_links:
+      currently: 'В данный момент активен юзер: '
+      unlink_twitter: 'Отвязать твиттер аккаунт'
+      link_twitter: 'Подключить твиттер аккаунт'
+      unlink_facebook: 'Отвязать facebook аккаунт'
+      link_facebook: 'Подключить facebook аккаунт'
+      logout: 'Выйти'
+      login_twitter: 'Войти с помощью твиттера'
+      login_facebook: 'Войти с помощью facebook'
+  user_sessions:
+    form:
+      email: 'Email'
+      password: 'Пароль'
+      login: 'Войти'
+    new:
+      title: 'Авторизация'
+      back: '< Назад'
+  users:
+    form:
+      errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
+    new:
+      title: 'Новый пользователь'
+    edit:
+      title: 'Редактирование аккаунта'
+    show:
+      title: 'Мои колоды'
+      text: 'Текст'
+      actions: 'Действия'
+      default_set: 'Установить основной'
+      delete: 'Удалить'
+      new_pack: 'Создать новую колоду'
+      title_cards: 'Мои карточки'
+      text: 'Текст'
+      translation: 'Перевод'
+      review_date: 'До проверки'
+      pack: 'Колода'
+      actions: 'Действия'
+      delete: 'Удалить'
+      on_review: "на проверке"
+      week: 'нед'
+      day: 'д'
+      hour: 'ч'
+      minute: 'мин'
+  layouts:
+    application:
+      title: 'Флэшкарточкер'
+    navbar:
+      title: 'Флэшкарточкер'
+      all_cards: 'Все карточки'
+      add_card: 'Добавить карточку'
+      login_first: 'Авторизируйтесь пожалуйста'
+      logged: 'Залогинен как:'
+      edit: 'Мой аккаунт'
+      logout: 'Выйти'
+      register: 'Зарегистрироваться'
+      login: 'Войти'
+  controllers:
+    cards:
+      created: 'Карточка создана успешно'
+      updated: "Карточка обновлена успешно"
+      deleted: "Карточка удалена успешно"
+      right: 'Правильно!'
+      wrong: 'Неправильно!'
+    homepage:
+      login_required: 'Вы должны быть залогинены'
+    oauths:
+      log_success: "Успешный вход через "
+      log_from: "Успешный вход с помощью "
+      log_fail: "Не удалось зайти с помощью "
+      unlink_success: "Вы успешно отвязали ваш аккаунт в "
+      unlink_fail: "Не удалось отвязать ваш аккаунт в "
+      link_success: "Вы успешно подключили ваш аккаунт в "
+      link_fail: "Не удалось подключить ваш аккаунт в "
+    packs:
+      pack_success: 'Колода успешно создана'
+      pack_delete: "Колода удалена успешно"
+    user_sessions:
+      log_success: 'Вход успешен'
+      log_fail: 'Не удалось войти'
+      logout: 'Выход из аккаунта успешен'
+    users:
+      create: 'Юзер создан успешно.'
+      update: 'Данные пользователя обновлены.'
+      destroy: 'Юзер успешно удален.'
+      main_pack: 'Колода установлена как основная'
+      main_pack_fail: 'Колода не была установлена как основная'
+  models:
+    card:
+      equal_translation: 'перевод не должен быть таким же как изначальный текст'
+      text_not_defined: 'текст или перевод не определены'
+  helpers:
+    submit:
+      user:
+        create: "Зарегистрироваться"
+        update: "Сохранить изменения"
+      card:
+        create: "Добавить карточку"
+        update: "Сохранить изменения"
+      pack:
+        create: "Добавить колоду"
+        update: "Сохранить изменения"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    -
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+    -
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :yearctiverecord:
+    errors:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    -
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+    -
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: нужно подтвердить
+      blank: не может быть пустым
+      present: нужно оставить пустым
+      confirmation: не совпадает со значением поля %{attribute}
+      empty: не может быть пустым
+      equal_to: может иметь лишь значение, равное %{count}
+      even: может иметь лишь нечетное значение
+      exclusion: имеет зарезервированное значение
+      greater_than: может иметь значение большее %{count}
+      greater_than_or_equal_to: может иметь значение большее или равное %{count}
+      inclusion: имеет непредусмотренное значение
+      invalid: имеет неверное значение
+      less_than: может иметь значение меньшее чем %{count}
+      less_than_or_equal_to: может иметь значение меньшее или равное %{count}
+      model_invalid: 'Возникли ошибки: %{errors}'
+      not_a_number: не является числом
+      not_an_integer: не является целым числом
+      odd: может иметь лишь четное значение
+      required: не может отсутствовать
+      taken: уже существует
+      too_long:
+        few: слишком большой длины (не может быть больше чем %{count} символа)
+        many: слишком большой длины (не может быть больше чем %{count} символов)
+        one: слишком большой длины (не может быть больше чем %{count} символ)
+        other: слишком большой длины (не может быть больше чем %{count} символа)
+      too_short:
+        few: недостаточной длины (не может быть меньше %{count} символов)
+        many: недостаточной длины (не может быть меньше %{count} символов)
+        one: недостаточной длины (не может быть меньше %{count} символа)
+        other: недостаточной длины (не может быть меньше %{count} символа)
+      wrong_length:
+        few: неверной длины (может быть длиной ровно %{count} символа)
+        many: неверной длины (может быть длиной ровно %{count} символов)
+        one: неверной длины (может быть длиной ровно %{count} символ)
+        other: неверной длины (может быть длиной ровно %{count} символа)
+      other_than: должно отличаться от %{count}
+    template:
+      body: 'Проблемы возникли со следующими полями:'
+      header:
+        few: "%{model}: сохранение не удалось из-за %{count} ошибок"
+        many: "%{model}: сохранение не удалось из-за %{count} ошибок"
+        one: "%{model}: сохранение не удалось из-за %{count} ошибки"
+        other: "%{model}: сохранение не удалось из-за %{count} ошибки"

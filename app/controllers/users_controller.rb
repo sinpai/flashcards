@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to @user, notice: I18n.t('controllers.users.create')
     else
       render :new
     end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: I18n.t('controllers.users.update')
     else
       render :edit
     end
@@ -49,15 +49,15 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    redirect_to users_url, notice: I18n.t('controllers.users.destroy')
   end
 
   def set_default_pack
     @user.default_pack = params[:id]
     if @user.save
-      redirect_to @user, notice: 'Колода установлена как основная'
+      redirect_to @user, notice: I18n.t('controllers.users.main_pack')
     else
-      redirect_to @user, notice: 'Колода не была установлена как основная'
+      redirect_to @user, notice: I18n.t('controllers.users.main_pack_fail')
     end
   end
 
@@ -69,6 +69,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :password_confirmation, :locale)
     end
 end
