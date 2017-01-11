@@ -3,8 +3,8 @@
     <% if @user.errors.any? %>
 	      <div class="alert alert-danger alert-dismissible" role="alert">
 	          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	          <h5><%= pluralize(@user.errors.count, "ошибка(-ок)") %>
-		            выявлено при сохранении формы:</h5>
+	          <h5><%= @user.errors.count %>
+		            <%= t('.errors_appeared')%></h5>
 
 	          <ul>
 		            <% @user.errors.full_messages.each do |msg| %>
@@ -15,18 +15,19 @@
     <% end %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <%= f.input :locale, collection: I18n.available_locales.map(&:to_s), input_html: { :style=> 'width: 5%;', :rows => 1} %>
 
   <div class="form-actions">
     <%= f.button :submit %>

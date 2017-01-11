@@ -5,5 +5,6 @@ FactoryGirl.define do
     email { FFaker::Internet.email }
     password 'qweasd'
     password_confirmation 'qweasd'
+    locale 'en'
   end
 end

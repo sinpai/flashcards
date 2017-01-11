@@ -1,8 +1,6 @@
-<h1 class="page-header">Редактирование карточки</h1>
+<h1 class="page-header"><%= t('.title') %></h1>
 
 <%= render partial: 'cards/form' %><br />
 
-<%= link_to ' < Назад', cards_path, class: "btn btn-default btn-sm additional_btns" %> | 
-<%= link_to 'Удалить', @card, method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-sm btn-danger" %>
-
-
+<%= link_to t('.back'), cards_path, class: "btn btn-default btn-sm additional_btns" %> | 
+<%= link_to t('.delete'), @card, method: :delete, data: { confirm: t('.sure') }, class: "btn btn-sm btn-danger" %>
