@@ -4,18 +4,18 @@ require 'rails_helper'
 feature 'Cards functionality' do
 
   def login
-    find(:css, '#login').click
+    click_button I18n.t('layouts.navbar.login')
     within '/html/body/form' do
       fill_in 'email', with: @logined_user = User.find(10).email
       fill_in 'password', with: 'qweasd'
-      click_on 'submit'
+      click_button I18n.t('user_sessions.form.login')
     end
   end
 
   def add_pack
     visit new_pack_path
     fill_in 'pack_title', with: @testword
-    click_button 'Add pack'
+    click_button I18n.t('helpers.submit.pack.create')
   end
 
   before(:each) do
@@ -28,9 +28,9 @@ feature 'Cards functionality' do
 
   scenario 'adding new pack' do
 
-    click_button 'Create new pack'
+    click_button I18n.t('users.show.new_pack')
     fill_in 'pack_title', with: @testword
-    click_button 'Add pack'
+    click_button I18n.t('helpers.submit.pack.create')
 
     expect(page).to have_content(@testword)
   end
@@ -39,8 +39,8 @@ feature 'Cards functionality' do
 
     add_pack
     click_link "#{@testword}"
-    click_link 'Delete pack'
+    click_link I18n.t('packs.show.delete')
 
-    expect(page).to have_content('Pack successfully deleted')
+    expect(page).to have_content(I18n.t 'controllers.packs.pack_delete')
   end
 end
