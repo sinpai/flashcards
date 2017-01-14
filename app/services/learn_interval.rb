@@ -34,7 +34,11 @@ class LearnInterval
   end
 
   def get_quality
-    ((get_distance + get_time_of_answer) / 2.0).round
+    if check_translation
+      ((get_distance + get_time_of_answer) / 2.0).round
+    else
+      get_distance
+    end
   end
 
   def get_distance
