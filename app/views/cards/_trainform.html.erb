@@ -6,7 +6,9 @@
 	<%= form_tag check_card_path do %>
 	    <%= text_field_tag :answer, "", placeholder: t('.answer'), class: 'input form-control' %><br />
 	    <%= hidden_field_tag :id, @card.id %>
-	    <%= submit_tag t('.check'), class: "btn btn-primary", type: "submit" %> | <%= link_to t('.next_card'), check_card_path %>
+      <%= javascript_include_tag 'answer_time' %>
+      <%= hidden_field_tag 'answertime' %>
+	    <%= submit_tag t('.check'), class: "btn btn-primary", type: "submit", id: "asubmit-button" %> | <%= link_to t('.next_card'), check_card_path %>
 	<% end %>
     </div>
 </div>

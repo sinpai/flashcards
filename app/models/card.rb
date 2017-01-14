@@ -25,26 +25,4 @@ class Card < ApplicationRecord
       I18n.t('models.card.text_not_defined')
     end
   end
-
-  def check_translation?(answer)
-    original_text == answer
-  end
-
-  def check_success
-    interval.blank? ? self.interval = 1 : (self.interval += 1 if interval < 5)
-    update_review_date(self.interval)
-  end
-
-  def check_failed
-    self.interval -= 1 unless interval.blank? || interval <= 0
-    update_review_date(self.interval)
-  end
-
-  def update_review_date(interval)
-    update_attributes(review_date: DAYS[interval].days.from_now)
-  end
-
-  def levenshtein_distance(answer)
-    Levenshtein.distance(original_text, answer) < 0.3
-  end
 end

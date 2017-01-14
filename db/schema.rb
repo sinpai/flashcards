@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110154219) do
+ActiveRecord::Schema.define(version: 20170114225802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,15 @@ ActiveRecord::Schema.define(version: 20170110154219) do
   create_table "cards", force: :cascade do |t|
     t.text     "original_text"
     t.text     "translated_text"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.datetime "review_date"
     t.integer  "user_id"
     t.string   "picture"
     t.integer  "pack_id"
-    t.integer  "interval"
+    t.float    "interval",        default: 1.0
+    t.float    "efactor",         default: 2.5
+    t.integer  "iteration",       default: 0
     t.index ["pack_id"], name: "index_cards_on_pack_id", using: :btree
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
