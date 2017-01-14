@@ -46,7 +46,7 @@ class CardsController < ApplicationController
     if @on_study.check_translation
       redirect_to check_card_path, notice: I18n.t('controllers.cards.right')
     else
-      if @on_study.levenshtein_distance >= 3
+      if @on_study.get_distance >= 3
         render('cards/train_failed')
       else
         redirect_to(check_card_path, notice: I18n.t('controllers.cards.wrong'))
