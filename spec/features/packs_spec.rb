@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'rails_helper'
 
-feature 'Cards functionality' do
+feature 'Packs functionality' do
 
   def login
     click_button I18n.t('layouts.navbar.login')

@@ -34,7 +34,7 @@ ru:
       created: 'Создано'
     train_failed:
       your_answer: 'Ваш ответ: '
-      right_asnwer: ' Правильный ответ: '
+      right_answer: ' Правильный ответ: '
       mistake: 'Наверное, вышла опечатка'
       next_card: 'Следующая карточка'
   notifications_mailer:
