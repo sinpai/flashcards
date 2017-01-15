@@ -40,13 +40,26 @@ describe Card do
   end
   it "should correctly check translation" do
     card = create(:card, original_text: "house", translated_text: "Дом")
-    expect(card.check_translation?("building")).to be false
+    expect(LearnInterval.new(card,"building").check_translation).to be false
   end
-  it "should correctly update review date" do
-    card = create(:card)
-    card.review_date = Date.today
-    card.valid?
-    card.update_review_date(2)
-    expect(card.review_date.to_date).to eq(DateTime.current.next_day(3).to_date)
+  it "should correctly calculate new efactor" do
+    card = build(:card, interval: 8.0, efactor: 1.7, iteration: 36, original_text: 'test')
+    LearnInterval.new(card, "test").update_card
+    expect(card.efactor.round(1)).to eq(1.8)
+  end
+  it "should correctly calculate new interval" do
+    card = build(:card, interval: 8.0, efactor: 1.7, iteration: 36, original_text: 'test')
+    LearnInterval.new(card, "test").update_card
+    expect(card.interval).to eq(16.0)
+  end
+  it "should correctly update iteration" do
+    card = build(:card, original_text: 'test')
+    LearnInterval.new(card, "test").update_card
+    expect(card.iteration).to eq(1)
+  end
+  it "should correctly calculate time value" do
+    card = build(:card, original_text: 'test')
+    study_unit = LearnInterval.new(card, "test", 80000)
+    expect(study_unit.get_quality).to eq(3)
   end
 end
