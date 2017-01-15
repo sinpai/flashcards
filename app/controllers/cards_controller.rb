@@ -41,12 +41,14 @@ class CardsController < ApplicationController
 
   def check_card
     @card = Card.find(params[:id])
-    if @card.check_translation?(params[:answer])
-      @card.check_success
+    @on_study = LearnInterval.new(@card, params[:answer], params[:answertime])
+    # Update card no matter if it fully correct
+    @on_study.update_card
+    # Check translation to show user correct info about check
+    if @on_study.check_translation
       redirect_to check_card_path, notice: I18n.t('controllers.cards.right')
     else
-      @card.check_failed
-      if @card.levenshtein_distance(params[:answer])
+      if @on_study.get_distance >= 3
         render('cards/train_failed')
       else
         redirect_to(check_card_path, notice: I18n.t('controllers.cards.wrong'))
@@ -57,6 +59,6 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :checktext, :picture, :remote_picture_url, :user_id, :pack_id)
+    params.require(:card).permit(:id, :original_text, :translated_text, :review_date, :checktext, :picture, :remote_picture_url, :user_id, :pack_id, :answertime)
   end
 end
