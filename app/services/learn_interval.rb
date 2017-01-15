@@ -44,36 +44,26 @@ class LearnInterval
   end
 
   def get_distance
+    # Get rating according to diff of the words
     case levenshtein_distance
-    when 0
-      5
-    when 0.01..0.2
-      4
-    when 0.21..0.4
-      3
-    when 0.41..0.6
-      2
-    when 0.61..0.8
-      1
-    when 0.81..1
-      0
+    when 0 then 5
+    when 0.01..0.2 then 4
+    when 0.21..0.4 then 3
+    when 0.41..0.6 then 2
+    when 0.61..0.8 then 1
+    when 0.81..1 then 0
     end
   end
 
   def get_time_of_answer
+    # Get rating according to time that was needed to answer
     case (@time.to_f / 1000.0).round
-    when 0..10
-      5
-    when 11..20
-      4
-    when 21..30
-      3
-    when 31..40
-      2
-    when 41..50
-      1
-    else
-      0
+    when 0..10 then 5
+    when 11..20 then 4
+    when 21..30 then 3
+    when 31..40 then 2
+    when 41..50 then 1
+    else 0
     end
   end
 

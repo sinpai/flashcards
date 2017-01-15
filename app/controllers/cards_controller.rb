@@ -42,7 +42,9 @@ class CardsController < ApplicationController
   def check_card
     @card = Card.find(params[:id])
     @on_study = LearnInterval.new(@card, params[:answer], params[:answertime])
+    # Update card no matter if it fully correct
     @on_study.update_card
+    # Check translation to show user correct info about check
     if @on_study.check_translation
       redirect_to check_card_path, notice: I18n.t('controllers.cards.right')
     else
