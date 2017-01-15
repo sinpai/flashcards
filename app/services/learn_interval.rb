@@ -20,7 +20,9 @@ class LearnInterval
   end
 
   def calc_interval(q)
-    if q < 3 or @new_iteration == 1
+    if q < 3
+      0
+    elsif @new_iteration == 1
       1
     elsif @new_iteration == 2
       6
