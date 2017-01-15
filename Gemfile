@@ -37,6 +37,8 @@ gem 'time_difference'
 gem 'levenshteinish'
 gem 'whenever', require: false
 gem 'http_accept_language'
+gem 'rollbar'
+gem 'newrelic_rpm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
