@@ -58,13 +58,12 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mail.yahoo.com',
-    port:                 465,
-    domain:               'mail.yahoo.com',
-    user_name:            ENV['MAILER_EMAIL'],
-    password:             ENV['MAILER_PASSWORD'],
-    authentication:       :plain,
-    enable_starttls_auto: true
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => ENV['MAILGUN_DOMAIN'],
+    :user_name => ENV['MAILGUN_LOGIN'],
+    :password => ENV['MAILGUN_PASSWORD']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

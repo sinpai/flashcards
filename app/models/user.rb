@@ -26,9 +26,13 @@ class User < ApplicationRecord
     packs.find(default_pack)
   end
 
-  def self.notify_pending_cards
-    self.joins(:cards).where('review_date < ?', Date.today).distinct.each do |user|
-      NotificationsMailer.pending_cards(user).deliver_now
+  def self.notify_pending_cards(customuser = nil)
+    if customuser
+      NotificationsMailer.pending_cards(self.find_by(email: customuser)).deliver_now
+    else
+      self.joins(:cards).where('review_date < ?', Date.today).distinct.each do |user|
+        NotificationsMailer.pending_cards(user).deliver_now
+      end
     end
   end
 end

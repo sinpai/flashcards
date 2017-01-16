@@ -34,14 +34,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mail.yahoo.com',
-    port:                 465,
-    domain:               'yahoo.com',
-    user_name:            ENV['MAILER_EMAIL'],
-    password:             ENV['MAILER_PASSWORD'],
-    authentication:       :login,
-    ssl:                  true,
-    enable_starttls_auto: true
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => ENV['MAILGUN_DOMAIN'],
+    :user_name => ENV['MAILGUN_LOGIN'],
+    :password => ENV['MAILGUN_PASSWORD']
   }
 
   # Print deprecation notices to the Rails logger.
