@@ -1,0 +1,18 @@
+<%= simple_form_for(@pack) do |f| %>
+
+    <% if @pack.errors.any? %>
+	      <div class="alert alert-danger alert-dismissible" role="alert">
+	          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <h5><%= @pack.errors.count %>
+		            <%= t('.errors_appeared')%></h5>
+
+	          <ul>
+		            <% @pack.errors.full_messages.each do |msg| %>
+		                <li><%= msg %></li>
+		            <% end %>
+	          </ul>
+	      </div>
+    <% end %>
+    <%= f.input :title, label: t('.name'), placeholder: t('.placeholder_name'), input_html: { :style=> 'width: 50%;', :rows => 1} %>
+            <%= f.button :submit %><br />
+<% end %>

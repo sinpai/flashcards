@@ -1,69 +1,105 @@
 ru:
-  homepage:
-    index:
-      add_some: 'Добавьте'
-      missing_words1: 'Нет карточек для учебы. '
-      missing_words2: ' несколько'
-      title: 'Тренировка карточек'
-  cards:
-    trainform:
-      answer: 'Ваш ответ'
-      check: 'Проверить'
-      next_card: 'Следующая карточка'
-    form:
-      errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
-      original_text: 'Слово или текст'
-      translated_text: 'Перевод'
-      pack: 'Колода'
-      review_date: 'Дата проверки'
-      picture: 'Загрузите вашу картинку'
-      picture_url: 'или дайте ссылку на картинку'
-    new:
-      title: 'Новая карточка'
-      back: '< Назад'
-    edit:
-      title: 'Редактирование карточки'
-      sure: 'Вы уверены?'
-      back: '< Назад'
-      delete: 'Удалить'
-    index:
-      all_cards: 'Все карточки'
-      text: 'Текст'
-      translation: 'Перевод'
-      review_date: 'Дата проверки'
-      created: 'Создано'
-    train_failed:
-      your_answer: 'Ваш ответ: '
-      right_answer: ' Правильный ответ: '
-      mistake: 'Наверное, вышла опечатка'
-      next_card: 'Следующая карточка'
+  home:
+    homepage:
+      index:
+        add_some: 'Добавьте'
+        missing_words1: 'Нет карточек для учебы. '
+        missing_words2: ' несколько'
+        title: 'Тренировка карточек'
+    user_sessions:
+      form:
+        email: 'Email'
+        password: 'Пароль'
+        login: 'Войти'
+      new:
+        title: 'Авторизация'
+        back: '< Назад'
+  dashboard:
+    cards:
+      trainform:
+        answer: 'Ваш ответ'
+        check: 'Проверить'
+        next_card: 'Следующая карточка'
+      form:
+        errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
+        original_text: 'Слово или текст'
+        translated_text: 'Перевод'
+        pack: 'Колода'
+        review_date: 'Дата проверки'
+        picture: 'Загрузите вашу картинку'
+        picture_url: 'или дайте ссылку на картинку'
+      new:
+        title: 'Новая карточка'
+        back: '< Назад'
+      edit:
+        title: 'Редактирование карточки'
+        sure: 'Вы уверены?'
+        back: '< Назад'
+        delete: 'Удалить'
+      index:
+        all_cards: 'Все карточки'
+        text: 'Текст'
+        translation: 'Перевод'
+        review_date: 'Дата проверки'
+        created: 'Создано'
+      train_failed:
+        your_answer: 'Ваш ответ: '
+        right_answer: ' Правильный ответ: '
+        mistake: 'Наверное, вышла опечатка'
+        next_card: 'Следующая карточка'
+    packs:
+      form:
+        errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
+        name: "Название"
+        placeholder_name: "Введите название"
+      new:
+        title: 'Новая колода'
+        back: ' < Назад'
+      show:
+        title: 'Редактирование колоды'
+        set_default: 'Установить основной'
+        delete: 'Удалить колоду'
+        text: 'Текст'
+        translation: 'Перевод'
+        review_date: 'Дата проверки'
+        created: 'Создано'
+        delete_card: 'Удалить'
+        on_review: "на проверке"
+        week: 'нед'
+        day: 'д'
+        hour: 'ч'
+        minute: 'мин'
+    users:
+      form:
+        errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
+      new:
+        title: 'Новый пользователь'
+      edit:
+        title: 'Редактирование аккаунта'
+      show:
+        title: 'Мои колоды'
+        text: 'Текст'
+        actions: 'Действия'
+        default_set: 'Установить основной'
+        delete: 'Удалить'
+        new_pack: 'Создать новую колоду'
+        title_cards: 'Мои карточки'
+        text: 'Текст'
+        translation: 'Перевод'
+        review_date: 'До проверки'
+        pack: 'Колода'
+        actions: 'Действия'
+        delete: 'Удалить'
+        on_review: "на проверке"
+        week: 'нед'
+        day: 'д'
+        hour: 'ч'
+        minute: 'мин'
   notifications_mailer:
     pending_cards:
       hello: 'Привет, '
       sentence1: 'У тебя есть карточки, которые надо поучить еще'
       sentence2: 'Заходи на сайт и продолжай учиться!'
-  packs:
-    form:
-      errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
-      name: "Название"
-      placeholder_name: "Введите название"
-    new:
-      title: 'Новая колода'
-      back: ' < Назад'
-    show:
-      title: 'Редактирование колоды'
-      set_default: 'Установить основной'
-      delete: 'Удалить колоду'
-      text: 'Текст'
-      translation: 'Перевод'
-      review_date: 'Дата проверки'
-      created: 'Создано'
-      delete_card: 'Удалить'
-      on_review: "на проверке"
-      week: 'нед'
-      day: 'д'
-      hour: 'ч'
-      minute: 'мин'
   shared:
     session_links:
       currently: 'В данный момент активен юзер: '
@@ -74,40 +110,6 @@ ru:
       logout: 'Выйти'
       login_twitter: 'Войти с помощью твиттера'
       login_facebook: 'Войти с помощью facebook'
-  user_sessions:
-    form:
-      email: 'Email'
-      password: 'Пароль'
-      login: 'Войти'
-    new:
-      title: 'Авторизация'
-      back: '< Назад'
-  users:
-    form:
-      errors_appeared: 'ошибка(-ок) выявлено при сохранении формы:'
-    new:
-      title: 'Новый пользователь'
-    edit:
-      title: 'Редактирование аккаунта'
-    show:
-      title: 'Мои колоды'
-      text: 'Текст'
-      actions: 'Действия'
-      default_set: 'Установить основной'
-      delete: 'Удалить'
-      new_pack: 'Создать новую колоду'
-      title_cards: 'Мои карточки'
-      text: 'Текст'
-      translation: 'Перевод'
-      review_date: 'До проверки'
-      pack: 'Колода'
-      actions: 'Действия'
-      delete: 'Удалить'
-      on_review: "на проверке"
-      week: 'нед'
-      day: 'д'
-      hour: 'ч'
-      minute: 'мин'
   layouts:
     application:
       title: 'Флэшкарточкер'
@@ -122,35 +124,37 @@ ru:
       register: 'Зарегистрироваться'
       login: 'Войти'
   controllers:
-    cards:
-      created: 'Карточка создана успешно'
-      updated: "Карточка обновлена успешно"
-      deleted: "Карточка удалена успешно"
-      right: 'Правильно!'
-      wrong: 'Неправильно!'
-    homepage:
-      login_required: 'Вы должны быть залогинены'
-    oauths:
-      log_success: "Успешный вход через "
-      log_from: "Успешный вход с помощью "
-      log_fail: "Не удалось зайти с помощью "
-      unlink_success: "Вы успешно отвязали ваш аккаунт в "
-      unlink_fail: "Не удалось отвязать ваш аккаунт в "
-      link_success: "Вы успешно подключили ваш аккаунт в "
-      link_fail: "Не удалось подключить ваш аккаунт в "
-    packs:
-      pack_success: 'Колода успешно создана'
-      pack_delete: "Колода удалена успешно"
-    user_sessions:
-      log_success: 'Вход успешен'
-      log_fail: 'Не удалось войти'
-      logout: 'Выход из аккаунта успешен'
-    users:
-      create: 'Юзер создан успешно.'
-      update: 'Данные пользователя обновлены.'
-      destroy: 'Юзер успешно удален.'
-      main_pack: 'Колода установлена как основная'
-      main_pack_fail: 'Колода не была установлена как основная'
+    home:
+      homepage:
+        login_required: 'Вы должны быть залогинены'
+      oauths:
+        log_success: "Успешный вход через "
+        log_from: "Успешный вход с помощью "
+        log_fail: "Не удалось зайти с помощью "
+        unlink_success: "Вы успешно отвязали ваш аккаунт в "
+        unlink_fail: "Не удалось отвязать ваш аккаунт в "
+        link_success: "Вы успешно подключили ваш аккаунт в "
+        link_fail: "Не удалось подключить ваш аккаунт в "
+      user_sessions:
+        log_success: 'Вход успешен'
+        log_fail: 'Не удалось войти'
+        logout: 'Выход из аккаунта успешен'
+    dashboard:
+      cards:
+        created: 'Карточка создана успешно'
+        updated: "Карточка обновлена успешно"
+        deleted: "Карточка удалена успешно"
+        right: 'Правильно!'
+        wrong: 'Неправильно!'
+      packs:
+        pack_success: 'Колода успешно создана'
+        pack_delete: "Колода удалена успешно"
+      users:
+        create: 'Юзер создан успешно.'
+        update: 'Данные пользователя обновлены.'
+        destroy: 'Юзер успешно удален.'
+        main_pack: 'Колода установлена как основная'
+        main_pack_fail: 'Колода не была установлена как основная'
   models:
     card:
       equal_translation: 'перевод не должен быть таким же как изначальный текст'

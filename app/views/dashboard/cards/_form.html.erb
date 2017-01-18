@@ -1,0 +1,34 @@
+<%= simple_form_for(@card) do |f| %>
+
+    <% if @card.errors.any? %>
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    <h5><%= @card.errors.count %>
+	        <%= t('.errors_appeared')%></h5>
+
+	    <ul>
+		<% @card.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		<% end %>
+	    </ul>
+	</div>
+    <% end %>
+    <div class="media">
+        <div class="media-left">
+            <%= image_tag @card.picture.url if @card.picture? %>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">
+                <%= @card.original_text %>
+            </h4><br />
+            <%= f.input :original_text, label: t('.original_text'), placeholder: t('.original_text'), input_html: { :style=> 'width: 50%;', :rows => 1} %>
+            <%= f.input :translated_text, label: t('.translated_text'), placeholder: t('.translated_text'), input_html: { :style=> 'width: 50%;', :rows => 1} %>
+            <%= f.input :pack_id, collection: current_user.packs.collect { |p| [ p.title, p.id ] }, label: t('.pack'),  input_html: { :style=> 'width: 20%;', :rows => 1} %>
+            <%= f.input :review_date, as: :datetime, label: t('.review_date'), default: DateTime.now, start_year: DateTime.now.year - 1, end_year: DateTime.now.year + 2, order: [:day, :month, :year] %>
+            <%= f.input :picture, as: :file, label: t('.picture') %><br /><br />
+            <%= f.input :remote_picture_url, label: t('.picture_url'), input_html: { :style=> 'width: 50%;', :rows => 1} %><br />
+            <%= f.button :submit %><br />
+        </div>
+    </div>
+<% end %>
+

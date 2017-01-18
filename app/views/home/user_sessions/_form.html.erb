@@ -1,0 +1,13 @@
+<%= form_tag home_user_sessions_path, :method => :post do %>
+    <div class="field form-group">
+        <%= label_tag t('.email') %><br />
+        <%= text_field_tag :email %>
+    </div>
+    <div class="field">
+        <%= label_tag t('.password') %><br />
+        <%= password_field_tag :password %>
+    </div>
+    <div class="actions">
+        <%= submit_tag t('.login'), id: 'submit' %>
+    </div>
+<% end %>
