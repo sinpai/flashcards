@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'login' => 'user_sessions#new', :as => :login
   end
 
-  post '/', to: 'cards#check_card', as: :check_card
+  post '/', to: 'cards#check_card', as: :check_card, defaults: { format: 'js' }
   post '/users/:id', to: 'users#set_default_pack', as: :set_pack
   post 'logout' => 'user_sessions#destroy', :as => :logout
 

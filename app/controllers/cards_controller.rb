@@ -1,6 +1,7 @@
 # coding: utf-8
 class CardsController < ApplicationController
   include ApplicationHelper
+  respond_to :html, :js
 
   helper_method :review_diff
 
@@ -49,7 +50,7 @@ class CardsController < ApplicationController
       redirect_to check_card_path, notice: I18n.t('controllers.cards.right')
     else
       if @on_study.get_distance >= 3
-        render('cards/train_failed')
+        render partial: "cards/train_failed.js.erb"
       else
         redirect_to(check_card_path, notice: I18n.t('controllers.cards.wrong'))
       end

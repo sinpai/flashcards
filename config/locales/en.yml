@@ -18,6 +18,11 @@ en:
       review_date: 'Review date'
       picture: 'Load your picture'
       picture_url: 'or provide URL of image'
+    train_failed:
+      your_answer: 'Your answer: '
+      right_answer: ' Right answer: '
+      mistake: 'Maybe, it was mistyping'
+      next_card: 'Next card'
     new:
       title: 'New card'
       back: '< Back'
@@ -32,11 +37,6 @@ en:
       translation: 'Translation'
       review_date: 'Review date'
       created: 'Created'
-    train_failed:
-      your_answer: 'Your answer: '
-      right_asnwer: ' Right answer: '
-      mistake: 'Maybe, it was mistyping'
-      next_card: 'Next card'
   notifications_mailer:
     pending_cards:
       hello: 'Hello, '
