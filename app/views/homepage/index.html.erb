@@ -1,15 +1,7 @@
 <% if @card.blank? %>
     <h3><%= t('.missing_words1') %><%= link_to t('.add_some'), new_card_path, class: "btn-link" %><%= t('.missing_words2') %></h3>
 <% else %>
-  <div class="media">
-    <div class="media-left">
-        <%= image_tag @card.picture.url if @card.picture? %>
-    </div>
-    <div class="media-body">
-        <h4 class="media-heading"><%= t('.title')%></h4>
-        <div id="train-form">
-          <%= render partial: 'cards/trainform' %>
-        </div>
-    </div>
+  <div id="train-form">
+    <%= render partial: 'cards/trainform' %>
   </div>
 <% end %>
