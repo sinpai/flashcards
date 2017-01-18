@@ -26,8 +26,9 @@ class LearnInterval
       1
     elsif @new_iteration == 2
       6
-    else
-      @card.interval*calc_efactor(q).round
+    elsif check_translation
+      (@card.interval.eql?(0.0) ? 1 : @card.interval)*calc_efactor(q).round
+    else 0
     end
   end
 
