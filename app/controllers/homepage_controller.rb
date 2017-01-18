@@ -10,10 +10,6 @@ class HomepageController < ApplicationController
             else
               current_user.cards.on_review.random_card
             end
-    respond_to do |format|
-      format.js {}
-      format.html
-    end
   end
 
   private
