@@ -1,6 +1,7 @@
 # coding: utf-8
 class Dashboard::UsersController < Dashboard::ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :set_default_pack]
+  skip_before_action :check_auth, only: [:create, :new]
 
   # GET /users
   # GET /users.json
@@ -49,7 +50,7 @@ class Dashboard::UsersController < Dashboard::ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    redirect_to dashboard_users_url, notice: I18n.t('controllers.dashboard.users.destroy')
+    redirect_to users_url, notice: I18n.t('controllers.dashboard.users.destroy')
   end
 
   def set_default_pack

@@ -3,7 +3,7 @@
     <%= button_to t('.set_default'), set_pack_path(@pack), class: "btn btn-default" %>
 </div>
 <div style="text-align: right;">
-    <%= link_to t('.delete'), dashboard_pack_path(@pack), method: :delete, class: "btn btn-default alert-danger" %>
+    <%= link_to t('.delete'), pack_path(@pack), method: :delete, class: "btn btn-default alert-danger" %>
 </div>
 <table class="table table-striped">
     <thead>
@@ -19,10 +19,10 @@
         <% @pack.cards.each_with_index do |card, index| %>
             <tr>
                 <th scope="row"><%= index+1 %></th>
-		            <td><%= link_to card.original_text, edit_dashboard_card_path(card) %></td>
+		            <td><%= link_to card.original_text, edit_card_path(card) %></td>
 		            <td><%= card.translated_text %></td>
 		            <td><%= card.review_date.nil? ? '-' : review_diff(card) %></td>
-		            <td><%= link_to t('.delete_card'), dashboard_card_path(card), method: :delete %></td>
+		            <td><%= link_to t('.delete_card'), card_path(card), method: :delete %></td>
             </tr>
         <% end  %>
     </tbody>

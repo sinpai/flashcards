@@ -1,11 +1,5 @@
 en:
   home:
-    homepage:
-      index:
-        add_some: 'Add'
-        missing_words1: 'There are no cards to learn. '
-        missing_words2: ' some'
-        title: 'Cards training'
     user_sessions:
       form:
         email: 'Email'
@@ -15,6 +9,12 @@ en:
         title: 'Authorization'
         back: '< Back'
   dashboard:
+    homepage:
+      index:
+        add_some: 'Add'
+        missing_words1: 'There are no cards to learn. '
+        missing_words2: ' some'
+        title: 'Cards training'
     cards:
       trainform:
         answer: 'Your answer'
@@ -125,8 +125,6 @@ en:
       login: 'Login'
   controllers:
     home:
-      homepage:
-        login_required: 'You must be logged in'
       oauths:
         log_success: "Logged in using "
         log_from: "Logged in from "
@@ -140,6 +138,8 @@ en:
         log_fail: 'Login failed'
         logout: 'Logged out!'
     dashboard:
+      homepage:
+        login_required: 'You must be logged in'
       cards:
         created: 'Card successfully created'
         updated: "Card successfully updated"

@@ -12,7 +12,7 @@ class Dashboard::PacksController < Dashboard::ApplicationController
   def create
     @pack = current_user.packs.build(pack_params)
     if @pack.save
-      redirect_to dashboard_user_path(current_user), notice: I18n.t('controllers.dashboard.packs.pack_success')
+      redirect_to user_path(current_user), notice: I18n.t('controllers.dashboard.packs.pack_success')
     else
       render action: 'new'
     end
@@ -20,7 +20,7 @@ class Dashboard::PacksController < Dashboard::ApplicationController
 
   def destroy
     Pack.find(params[:id]).destroy
-    redirect_to dashboard_user_path(current_user), notice: I18n.t('controllers.dashboard.packs.pack_delete')
+    redirect_to user_path(current_user), notice: I18n.t('controllers.dashboard.packs.pack_delete')
   end
 
   def pack_params

@@ -1,11 +1,5 @@
 ru:
   home:
-    homepage:
-      index:
-        add_some: 'Добавьте'
-        missing_words1: 'Нет карточек для учебы. '
-        missing_words2: ' несколько'
-        title: 'Тренировка карточек'
     user_sessions:
       form:
         email: 'Email'
@@ -15,6 +9,12 @@ ru:
         title: 'Авторизация'
         back: '< Назад'
   dashboard:
+    homepage:
+      index:
+        add_some: 'Добавьте'
+        missing_words1: 'Нет карточек для учебы. '
+        missing_words2: ' несколько'
+        title: 'Тренировка карточек'
     cards:
       trainform:
         answer: 'Ваш ответ'
@@ -125,8 +125,6 @@ ru:
       login: 'Войти'
   controllers:
     home:
-      homepage:
-        login_required: 'Вы должны быть залогинены'
       oauths:
         log_success: "Успешный вход через "
         log_from: "Успешный вход с помощью "
@@ -140,6 +138,8 @@ ru:
         log_fail: 'Не удалось войти'
         logout: 'Выход из аккаунта успешен'
     dashboard:
+      homepage:
+        login_required: 'Вы должны быть залогинены'
       cards:
         created: 'Карточка создана успешно'
         updated: "Карточка обновлена успешно"

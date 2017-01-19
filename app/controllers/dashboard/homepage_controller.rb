@@ -1,8 +1,6 @@
 # coding: utf-8
 # Controller for Homepage
-class HomepageController < ApplicationController
-
-  before_action :check_auth
+class Dashboard::HomepageController < Dashboard::ApplicationController
 
   def index
     @card = if current_user.default_pack
@@ -10,11 +8,5 @@ class HomepageController < ApplicationController
             else
               current_user.cards.on_review.random_card
             end
-  end
-
-  private
-
-  def check_auth
-    redirect_to login_path, notice: I18n.t('controllers.homepage.login_required') unless current_user
   end
 end

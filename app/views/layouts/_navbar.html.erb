@@ -7,9 +7,9 @@
           <a class="navbar-brand" href="/"><%= t('.title')%></a>
       </div>
       <div class="nav navbar-nav">
-           <%= link_to t('.all_cards'), dashboard_cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
+           <%= link_to t('.all_cards'), cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
 	        <% if current_user %>
-              <%= link_to t('.add_card'), new_dashboard_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
+              <%= link_to t('.add_card'), new_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
           <% else %>
               <%= link_to t('.add_card'), login_path, data: { confirm: t('.login_first') }, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
           <% end %>
@@ -23,11 +23,11 @@
               <% end %>
           <% end %>
           <% if current_user %>
-              <em><%= t('.logged') %> </em><%= link_to current_user.email, dashboard_user_path(current_user.id), class: "btn-link" %>
-              <%= link_to t('.edit'), edit_dashboard_user_path(current_user.id), class: "btn btn-default navbar-btn" %>
+              <em><%= t('.logged') %> </em><%= link_to current_user.email, user_path(current_user.id), class: "btn-link" %>
+              <%= link_to t('.edit'), edit_user_path(current_user.id), class: "btn btn-default navbar-btn" %>
               <%= link_to t('.logout'), logout_path, method: :post, class: "btn btn-default navbar-btn" %>
           <% else %>
-              <%= link_to t('.register'), new_dashboard_user_path, class: "btn btn-default navbar-btn", id: 'signup' %> |
+              <%= link_to t('.register'), new_user_path, class: "btn btn-default navbar-btn", id: 'signup' %> |
               <%= link_to t('.login'), login_path, class: "btn btn-default navbar-btn", id: 'login' %>
           <% end %>
       </div>

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
- scope '/home', module: 'home' do
+  scope '/home', module: 'home' do
     scope "(:locale)", locale: /ru|en/ do
-      resources :homepage, as: :homepage
       resources :user_sessions
       resources :oauths
     end
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 
   scope '/dashboard', module: 'dashboard' do
     scope "(:locale)", locale: /ru|en/ do
+      resources :homepage
       resources :cards
       resources :users
       resources :packs
@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   post '/packs/new', to: 'dashboard/packs#new', as: :new_pack_new
   post '/', to: 'dashboard/cards#check_card', as: :check_card, defaults: { format: 'js' }
   post '/users/:id', to: 'dashboard/users#set_default_pack', as: :set_pack
-  root to: 'home/homepage#index'
+  root to: 'dashboard/homepage#index'
 end

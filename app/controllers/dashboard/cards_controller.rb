@@ -20,7 +20,7 @@ class Dashboard::CardsController < Dashboard::ApplicationController
   def create
     @card = current_user.cards.build(card_params)
     if @card.save
-      redirect_to edit_dashboard_card_path(@card), notice: I18n.t('controllers.dashboard.cards.created')
+      redirect_to edit_card_path(@card), notice: I18n.t('controllers.dashboard.cards.created')
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class Dashboard::CardsController < Dashboard::ApplicationController
   def update
     @card = Card.find(params[:id])
     if @card.update_attributes(card_params)
-      redirect_to edit_dashboard_card_path(@card), notice: I18n.t('controllers.dashboard.cards.updated')
+      redirect_to edit_card_path(@card), notice: I18n.t('controllers.dashboard.cards.updated')
     else
       render action: 'edit'
     end
@@ -37,7 +37,7 @@ class Dashboard::CardsController < Dashboard::ApplicationController
 
   def destroy
     Card.find(params[:id]).destroy
-    redirect_to dashboard_user_path(current_user), notice: I18n.t('controllers.dashboard.cards.deleted')
+    redirect_to user_path(current_user), notice: I18n.t('controllers.dashboard.cards.deleted')
   end
 
   def check_card

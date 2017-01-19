@@ -15,6 +15,10 @@
  *= require bootstrap.min
  */
 
+body {
+	  background: linear-gradient(90deg, #FAECD5, #CAE4D8);
+}
+
 #container {
   margin: 48px auto;
   width: 960px;

@@ -14,7 +14,7 @@
 	  <% @cards.each_with_index do |card, index| %>
 	      <tr id="wordline">
 		  <th scope="row"><%= index+1 %></th>
-		  <td><%= link_to card.original_text, edit_dashboard_card_path(card), id: "origtext" %></td>
+		  <td><%= link_to card.original_text, edit_card_path(card), id: "origtext" %></td>
 		  <td><%= card.translated_text %></td>
 		  <td><%= card.review_date.nil? ? '-' : card.review_date.to_time.strftime("%d/%m/%Y") %></td>
 		  <td><%= card.created_at.to_time.strftime("%d/%m/%Y") %></td>

@@ -2,6 +2,6 @@
     <h3><%= t('.missing_words1') %><%= link_to t('.add_some'), new_card_path, class: "btn-link" %><%= t('.missing_words2') %></h3>
 <% else %>
   <div id="train-form">
-    <%= render partial: 'cards/trainform' %>
+    <%= render partial: 'dashboard/cards/trainform' %>
   </div>
 <% end %>
