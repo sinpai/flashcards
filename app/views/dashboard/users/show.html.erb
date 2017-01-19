@@ -16,14 +16,14 @@
 	              <tr>
 		                <th scope="row"><%= index+1 %></th>
 		                <td><%= link_to pack.title, dashboard_pack_path(pack) %></td>
-                    <td><%= button_to t('.default_set'), dashboard_set_pack_path(pack), class: "btn-link" %></td>
+                    <td><%= button_to t('.default_set'), set_pack_path(pack), class: "btn-link" %></td>
 		                <td><%= link_to t('.delete'), dashboard_pack_path(pack), method: :delete %></td>
 	              </tr>
 	          <% end %>
         </tbody>
     </table>
 </section>
-<%= button_to t('.new_pack'), new_dashboard_pack_path, class: "btn btn-default navbar-btn alert-info", id: "new_pack" %>
+<%= button_to t('.new_pack'), new_pack_path, class: "btn btn-default navbar-btn alert-info", id: "new_pack" %>
 <h3 class="page-header"><%= t('.title_cards')%></h3>
 <section class="all-cards">
     <table class="table table-striped">

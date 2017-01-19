@@ -1,6 +1,6 @@
 <h3 class="page-header"><%= t('.title')%> </h3>
 <div style="text-align: left;">
-    <%= button_to t('.set_default'), dashboard_set_pack_path(@pack), class: "btn btn-default" %>
+    <%= button_to t('.set_default'), set_pack_path(@pack), class: "btn btn-default" %>
 </div>
 <div style="text-align: right;">
     <%= link_to t('.delete'), dashboard_pack_path(@pack), method: :delete, class: "btn btn-default alert-danger" %>

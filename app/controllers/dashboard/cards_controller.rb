@@ -47,12 +47,12 @@ class Dashboard::CardsController < Dashboard::ApplicationController
     @on_study.update_card
     # Check translation to show user correct info about check
     if @on_study.check_translation
-      redirect_to dashboard_check_card_path, notice: I18n.t('controllers.dashboard.cards.right')
+      redirect_to check_card_path, notice: I18n.t('controllers.dashboard.cards.right')
     else
       if @on_study.get_distance >= 3
         render partial: "dashboard/cards/train_failed.js.erb"
       else
-        redirect_to(dashboard_check_card_path, notice: I18n.t('controllers.dashboard.cards.wrong'))
+        redirect_to(check_card_path, notice: I18n.t('controllers.dashboard.cards.wrong'))
       end
     end
   end

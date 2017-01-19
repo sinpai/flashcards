@@ -15,6 +15,6 @@ class Home::HomepageController < Home::ApplicationController
   private
 
   def check_auth
-    redirect_to home_login_path, notice: I18n.t('controllers.home.homepage.login_required') unless current_user
+    redirect_to login_path, notice: I18n.t('controllers.home.homepage.login_required') unless current_user
   end
 end

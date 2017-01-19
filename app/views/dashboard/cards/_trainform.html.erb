@@ -9,12 +9,12 @@
 	      <h3 class="panel-title"><span id='cardid'><%= @card.id %></span> | <span id="translation"><%= @card.translated_text %></span></h3>
       </div>
       <div class="panel-body">
-	<%= form_tag dashboard_check_card_path, remote: true do %>
+	<%= form_tag check_card_path, remote: true do %>
 	    <%= text_field_tag :answer, "", placeholder: t('.answer'), class: 'input form-control' %><br />
 	    <%= hidden_field_tag :id, @card.id %>
       <%= javascript_include_tag 'answer_time' %>
       <%= hidden_field_tag 'answertime' %>
-	    <%= submit_tag t('.check'), class: "btn btn-primary", type: "submit", id: "asubmit-button" %> | <%= link_to t('.next_card'), dashboard_check_card_path, remote: true %>
+	    <%= submit_tag t('.check'), class: "btn btn-primary", type: "submit", id: "asubmit-button" %> | <%= link_to t('.next_card'), check_card_path, remote: true %>
 	<% end %>
     </div>
     </div>

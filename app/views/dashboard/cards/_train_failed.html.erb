@@ -6,6 +6,6 @@
         <h4><%= t('dashboard.cards.train_failed.your_answer')%><span class="text-danger"><%= params[:answer] %>. </span><%= t('dashboard.cards.train_failed.right_answer')%><span class="text-info"><%= @card.original_text%></span></h4>
         <h5><%= t('dashboard.cards.train_failed.mistake')%></h5>
         <hr>
-	      <%= link_to t('dashboard.cards.train_failed.next_card'), dashboard_check_card_path, remote: true %>
+	      <%= link_to t('dashboard.cards.train_failed.next_card'), check_card_path, remote: true %>
     </div>
 </div>
