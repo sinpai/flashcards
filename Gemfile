@@ -69,6 +69,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano3-puma'
+  gem 'capistrano-secrets-yml', '~> 1.0.0'
   gem 'capistrano3-env', '~> 0.1.0'
 end
 
