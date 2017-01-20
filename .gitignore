@@ -9,7 +9,7 @@
 /config/database.yml
 /config/secrets.yml
 /config/deploy.rb
-/config/provision/config/keys
+/config/provision/keys
 /.env
 /public/uploads
 
