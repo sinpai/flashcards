@@ -64,6 +64,12 @@ group :development do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0'
+
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
+  gem 'capistrano3-env', '~> 0.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,6 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  pool: 8
+  database: flashcards_production
