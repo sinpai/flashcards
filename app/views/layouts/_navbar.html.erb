@@ -9,7 +9,7 @@
       <div class="nav navbar-nav">
 	        <% if current_user %>
               <%= link_to t('.all_cards'), cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
-              <%= link_to t('dashboard.users.show.add_pack'), new_pack_new_path, class: "btn btn-default navbar-btn alert-warning", id: 'add_pack' %>
+              <%= link_to t('.new_pack'), new_pack_path, class: "btn btn-default navbar-btn alert-warning", id: "new_pack" %>
               <% unless current_user.packs.blank? %><%= link_to t('.add_card'), new_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %><% end %>
           <% end %>
       </div>

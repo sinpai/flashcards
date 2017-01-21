@@ -123,6 +123,7 @@ ru:
       logout: 'Выйти'
       register: 'Зарегистрироваться'
       login: 'Войти'
+      new_pack: 'Добавить колоду'
   controllers:
     home:
       oauths:

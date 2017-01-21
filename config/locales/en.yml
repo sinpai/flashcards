@@ -123,6 +123,7 @@ en:
       logout: 'Logout'
       register: 'Sign up'
       login: 'Login'
+      new_pack: 'Add new pack'
   controllers:
     home:
       oauths:
