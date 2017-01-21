@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
 
-  scope '/home', module: 'home' do
-    scope "(:locale)", locale: /ru|en/ do
+  scope "(:locale)", locale: /ru|en/ do
+    scope '/home', module: 'home' do
       resources :user_sessions
       resources :oauths
     end
-  end
-
-  scope '/dashboard', module: 'dashboard' do
-    scope "(:locale)", locale: /ru|en/ do
+    scope '/dashboard', module: 'dashboard' do
       resources :homepage
       resources :cards
       resources :users
