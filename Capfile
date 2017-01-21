@@ -41,6 +41,7 @@ require 'capistrano/puma/jungle'  # if you need the jungle tasks
 require 'capistrano/puma/monit'   # if you need the monit tasks
 require 'capistrano/puma/nginx'
 require 'capistrano/secrets_yml'
+require 'capistrano/env-config'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
