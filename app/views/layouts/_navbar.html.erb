@@ -7,11 +7,10 @@
           <a class="navbar-brand" href="/"><%= t('.title')%></a>
       </div>
       <div class="nav navbar-nav">
-           <%= link_to t('.all_cards'), cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
 	        <% if current_user %>
-              <%= link_to t('.add_card'), new_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
-          <% else %>
-              <%= link_to t('.add_card'), login_path, data: { confirm: t('.login_first') }, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %>
+              <%= link_to t('.all_cards'), cards_path, class: "btn btn-default navbar-btn alert-success", id: 'all_cards' %>
+              <%= link_to t('dashboard.users.show.add_pack'), new_pack_new_path, class: "btn btn-default navbar-btn alert-warning", id: 'add_pack' %>
+              <% unless current_user.packs.blank? %><%= link_to t('.add_card'), new_card_path, class: "btn btn-default navbar-btn alert-info", id: 'add_card' %><% end %>
           <% end %>
       </div>
       <div class="nav navbar-nav navbar-right">

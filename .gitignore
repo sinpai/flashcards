@@ -10,6 +10,7 @@
 /config/secrets.yml
 /config/deploy.rb
 /config/provision/keys
+/config/provision/config/.env
 /.env
 /public/uploads
 
