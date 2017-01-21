@@ -13,7 +13,7 @@ en:
       index:
         add_some: 'Add'
         missing_words1: 'There are no cards to learn. '
-        missing_words2: ' some'
+        missing_words2: ' pack and some cards'
         title: 'Cards training'
     cards:
       trainform:

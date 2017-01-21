@@ -13,7 +13,7 @@ ru:
       index:
         add_some: 'Добавьте'
         missing_words1: 'Нет карточек для учебы. '
-        missing_words2: ' несколько'
+        missing_words2: ' колоду и несколько карточек'
         title: 'Тренировка карточек'
     cards:
       trainform:
