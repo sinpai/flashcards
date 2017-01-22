@@ -1,25 +1,28 @@
 Rails.application.routes.draw do
 
-  get 'oauths/oauth'
-
-  get 'oauths/callback'
-
   scope "(:locale)", locale: /ru|en/ do
-    root to: 'homepage#index'
-    resources :cards
-    resources :users
-    resources :user_sessions
-    resources :packs
-    post '/packs/new', to: 'packs#new', as: :new_pack_new
-    get 'login' => 'user_sessions#new', :as => :login
+    scope '/home', module: 'home' do
+      resources :user_sessions
+      resources :oauths
+    end
+    scope '/dashboard', module: 'dashboard' do
+      resources :homepage
+      resources :cards
+      resources :users
+      resources :packs
+    end
   end
 
-  post '/', to: 'cards#check_card', as: :check_card
-  post '/users/:id', to: 'users#set_default_pack', as: :set_pack
-  post 'logout' => 'user_sessions#destroy', :as => :logout
-
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback"
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
-  delete "oauth/:provider" => "oauths#destroy", :as => :delete_oauth
+  get 'oauths/oauth'
+  get 'oauths/callback'
+  post "oauth/callback" => "home/ohoauths#callback"
+  get "oauth/callback" => "home/oauths#callback"
+  get "oauth/:provider" => "home/oauths#oauth", :as => :auth_at_provider
+  delete "oauth/:provider" => "home/oauths#destroy", :as => :delete_oauth
+  get 'login' => 'home/user_sessions#new', :as => :login
+  post 'logout' => 'home/user_sessions#destroy', :as => :logout
+  post '/packs/new', to: 'dashboard/packs#new', as: :new_pack_new
+  post '/', to: 'dashboard/cards#check_card', as: :check_card, defaults: { format: 'js' }
+  post '/users/:id', to: 'dashboard/users#set_default_pack', as: :set_pack
+  root to: 'dashboard/homepage#index'
 end

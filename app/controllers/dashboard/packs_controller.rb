@@ -1,5 +1,5 @@
 # coding: utf-8
-class PacksController < ApplicationController
+class Dashboard::PacksController < Dashboard::ApplicationController
 
   def show
     @pack = Pack.find(params[:id])
@@ -12,7 +12,7 @@ class PacksController < ApplicationController
   def create
     @pack = current_user.packs.build(pack_params)
     if @pack.save
-      redirect_to user_path(current_user), notice: I18n.t('controllers.packs.pack_success')
+      redirect_to user_path(current_user), notice: I18n.t('controllers.dashboard.packs.pack_success')
     else
       render action: 'new'
     end
@@ -20,7 +20,7 @@ class PacksController < ApplicationController
 
   def destroy
     Pack.find(params[:id]).destroy
-    redirect_to user_path(current_user), notice: I18n.t('controllers.packs.pack_delete')
+    redirect_to user_path(current_user), notice: I18n.t('controllers.dashboard.packs.pack_delete')
   end
 
   def pack_params

@@ -1,69 +1,105 @@
 en:
-  homepage:
-    index:
-      add_some: 'Add'
-      missing_words1: 'There are no cards to learn. '
-      missing_words2: ' some'
-      title: 'Cards training'
-  cards:
-    trainform:
-      answer: 'Your answer'
-      check: 'Check'
-      next_card: 'Next card'
-    form:
-      errors_appeared: 'error(-s) appeared during save:'
-      original_text: 'Your text'
-      translated_text: 'Translation'
-      pack: 'Pack'
-      review_date: 'Review date'
-      picture: 'Load your picture'
-      picture_url: 'or provide URL of image'
-    new:
-      title: 'New card'
-      back: '< Back'
-    edit:
-      title: 'Edit card'
-      sure: 'Are you sure?'
-      back: '< Back'
-      delete: 'Delete'
-    index:
-      all_cards: 'All cards'
-      text: 'Text'
-      translation: 'Translation'
-      review_date: 'Review date'
-      created: 'Created'
-    train_failed:
-      your_answer: 'Your answer: '
-      right_asnwer: ' Right answer: '
-      mistake: 'Maybe, it was mistyping'
-      next_card: 'Next card'
+  home:
+    user_sessions:
+      form:
+        email: 'Email'
+        password: 'Password'
+        login: 'Login'
+      new:
+        title: 'Authorization'
+        back: '< Back'
+  dashboard:
+    homepage:
+      index:
+        add_some: 'Add'
+        missing_words1: 'There are no cards to learn. '
+        missing_words2: ' pack and some cards'
+        title: 'Cards training'
+    cards:
+      trainform:
+        answer: 'Your answer'
+        check: 'Check'
+        next_card: 'Next card'
+      form:
+        errors_appeared: 'error(-s) appeared during save:'
+        original_text: 'Your text'
+        translated_text: 'Translation'
+        pack: 'Pack'
+        review_date: 'Review date'
+        picture: 'Load your picture'
+        picture_url: 'or provide URL of image'
+      train_failed:
+        your_answer: 'Your answer: '
+        right_answer: ' Right answer: '
+        mistake: 'Maybe, it was mistyping'
+        next_card: 'Next card'
+      new:
+        title: 'New card'
+        back: '< Back'
+      edit:
+        title: 'Edit card'
+        sure: 'Are you sure?'
+        back: '< Back'
+        delete: 'Delete'
+      index:
+        all_cards: 'All cards'
+        text: 'Text'
+        translation: 'Translation'
+        review_date: 'Review date'
+        created: 'Created'
+    packs:
+      form:
+        errors_appeared: 'error(-s) appeared during save:'
+        name: "Name"
+        placeholder_name: "Fill in name"
+      new:
+        title: 'New pack'
+        back: ' < Back'
+      show:
+        title: 'Edit pack'
+        set_default: 'Set as default'
+        delete: 'Delete pack'
+        text: 'Text'
+        translation: 'Translation'
+        review_date: 'Until review'
+        created: 'Created'
+        delete_card: 'Delete'
+        on_review: "on review"
+        week: 'w'
+        day: 'd'
+        hour: 'h'
+        minute: 'm'
+    users:
+      form:
+        errors_appeared: 'error(-s) appeared during save:'
+      new:
+        title: 'New user'
+      edit:
+        title: 'My account'
+      show:
+        title: 'My packs'
+        text: 'Text'
+        actions: 'Actions'
+        default_set: 'Set as default'
+        delete: 'Delete'
+        new_pack: 'Create new pack'
+        title_cards: 'My cards'
+        text: 'Text'
+        translation: 'Translation'
+        review_date: 'Until review'
+        pack: 'Pack'
+        actions: 'Actions'
+        delete: 'Delete'
+        on_review: "on review"
+        week: 'w'
+        day: 'd'
+        hour: 'h'
+        minute: 'm'
   notifications_mailer:
     pending_cards:
       hello: 'Hello, '
       sentence1: 'You have cards ready to learn'
       sentence2: 'Visit your site and continue to learn!'
-  packs:
-    form:
-      errors_appeared: 'error(-s) appeared during save:'
-      name: "Name"
-      placeholder_name: "Fill in name"
-    new:
-      title: 'New pack'
-      back: ' < Back'
-    show:
-      title: 'Edit pack'
-      set_default: 'Set as default'
-      delete: 'Delete pack'
-      text: 'Text'
-      translation: 'Translation'
-      review_date: 'Until review'
-      created: 'Created'
-      delete_card: 'Delete'
-      on_review: "on review"
-      week: 'w'
-      day: 'd'
-      hour: 'h'
-      minute: 'm'
   shared:
     session_links:
       currently: 'Currently logged in as: '
@@ -74,40 +110,6 @@ en:
       logout: 'Logout'
       login_twitter: 'Login using Twitter'
       login_facebook: 'Login using Facebook'
-  user_sessions:
-    form:
-      email: 'Email'
-      password: 'Password'
-      login: 'Login'
-    new:
-      title: 'Authorization'
-      back: '< Back'
-  users:
-    form:
-      errors_appeared: 'error(-s) appeared during save:'
-    new:
-      title: 'New user'
-    edit:
-      title: 'My account'
-    show:
-      title: 'My packs'
-      text: 'Text'
-      actions: 'Actions'
-      default_set: 'Set as default'
-      delete: 'Delete'
-      new_pack: 'Create new pack'
-      title_cards: 'My cards'
-      text: 'Text'
-      translation: 'Translation'
-      review_date: 'Until review'
-      pack: 'Pack'
-      actions: 'Actions'
-      delete: 'Delete'
-      on_review: "on review"
-      week: 'w'
-      day: 'd'
-      hour: 'h'
-      minute: 'm'
   layouts:
     application:
       title: 'Flashcardchecker'
@@ -121,36 +123,39 @@ en:
       logout: 'Logout'
       register: 'Sign up'
       login: 'Login'
+      new_pack: 'Add new pack'
   controllers:
-    cards:
-      created: 'Card successfully created'
-      updated: "Card successfully updated"
-      deleted: "Card successfully deleted"
-      right: 'Right answer!'
-      wrong: 'Wrong!'
-    homepage:
-      login_required: 'You must be logged in'
-    oauths:
-      log_success: "Logged in using "
-      log_from: "Logged in from "
-      log_fail: "Failed to login from "
-      unlink_success: "You have successfully unlinked your account in "
-      unlink_fail: "You do not currently have a linked account in "
-      link_success: "You have successfully linked your account in "
-      link_fail: "There was a problem linking your account in "
-    packs:
-      pack_success: 'Pack successfully created'
-      pack_delete: 'Pack successfully deleted'
-    user_sessions:
-      log_success: 'Login successful'
-      log_fail: 'Login failed'
-      logout: 'Logged out!'
-    users:
-      create: 'User was successfully created.'
-      update: 'User was successfully updated.'
-      destroy: 'User was successfully destroyed.'
-      main_pack: 'Pack was set as default'
-      main_pack_fail: 'Pack was failed to be set as default'
+    home:
+      oauths:
+        log_success: "Logged in using "
+        log_from: "Logged in from "
+        log_fail: "Failed to login from "
+        unlink_success: "You have successfully unlinked your account in "
+        unlink_fail: "You do not currently have a linked account in "
+        link_success: "You have successfully linked your account in "
+        link_fail: "There was a problem linking your account in "
+      user_sessions:
+        log_success: 'Login successful'
+        log_fail: 'Login failed'
+        logout: 'Logged out!'
+    dashboard:
+      homepage:
+        login_required: 'You must be logged in'
+      cards:
+        created: 'Card successfully created'
+        updated: "Card successfully updated"
+        deleted: "Card successfully deleted"
+        right: 'Right answer!'
+        wrong: 'Wrong!'
+      packs:
+        pack_success: 'Pack successfully created'
+        pack_delete: 'Pack successfully deleted'
+      users:
+        create: 'User was successfully created.'
+        update: 'User was successfully updated.'
+        destroy: 'User was successfully destroyed.'
+        main_pack: 'Pack was set as default'
+        main_pack_fail: 'Pack was failed to be set as default'
   models:
     card:
       equal_translation: 'translation should not be the same as original text'

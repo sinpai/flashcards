@@ -8,7 +8,7 @@ feature 'Packs functionality' do
     within '/html/body/form' do
       fill_in 'email', with: @logined_user = User.find(10).email
       fill_in 'password', with: 'qweasd'
-      click_button I18n.t('user_sessions.form.login')
+      click_button I18n.t('home.user_sessions.form.login')
     end
   end
 
@@ -28,7 +28,7 @@ feature 'Packs functionality' do
 
   scenario 'adding new pack' do
 
-    click_button I18n.t('users.show.new_pack')
+    click_button I18n.t('dashboard.users.show.new_pack')
     fill_in 'pack_title', with: @testword
     click_button I18n.t('helpers.submit.pack.create')
 
@@ -39,8 +39,8 @@ feature 'Packs functionality' do
 
     add_pack
     click_link "#{@testword}"
-    click_link I18n.t('packs.show.delete')
+    click_link I18n.t('dashboard.packs.show.delete')
 
-    expect(page).to have_content(I18n.t 'controllers.packs.pack_delete')
+    expect(page).to have_content(I18n.t 'controllers.dashboard.packs.pack_delete')
   end
 end

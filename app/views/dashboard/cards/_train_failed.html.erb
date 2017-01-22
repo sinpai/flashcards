@@ -1,0 +1,12 @@
+<% iscope = 'dashboard.cards.train_failed' %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+	      <h3 class="panel-title"><span id='cardid'><%= @card.id %></span> | <span id="translation"><%= @card.translated_text %></span></h3>
+    </div>
+    <div class="panel-body">
+        <h4><%= t('your_answer', scope: iscope)%><span class="text-danger"><%= params[:answer] %>. </span><%= t('right_answer', scope: iscope)%><span class="text-info"><%= @card.original_text%></span></h4>
+        <h5><%= t('mistake', scope: iscope)%></h5>
+        <hr>
+	      <%= link_to t('next_card', scope: iscope), check_card_path, remote: true %>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <h1 class="page-header"><%= t('.title') %></h1>
 
-<%= render partial: 'cards/form' %><br />
+<%= render partial: 'dashboard/cards/form' %><br />
 
-<%= link_to t('.back'), cards_path, class: "btn btn-default btn-sm additional_btns" %> | 
+<%= link_to t('.back'), cards_path, class: "btn btn-default btn-sm additional_btns" %> |
 <%= link_to t('.delete'), @card, method: :delete, data: { confirm: t('.sure') }, class: "btn btn-sm btn-danger" %>

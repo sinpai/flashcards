@@ -8,7 +8,7 @@ feature 'Cards functionality' do
     within '/html/body/form' do
       fill_in 'email', with: @logined_user = User.find(10).email
       fill_in 'password', with: 'qweasd'
-      click_button I18n.t('user_sessions.form.login')
+      click_button I18n.t('home.user_sessions.form.login')
     end
   end
 
@@ -51,9 +51,9 @@ feature 'Cards functionality' do
     ortext = card_info.original_text
 
     fill_in 'answer', with: ortext
-    click_button I18n.t('cards.trainform.check')
+    click_button I18n.t('dashboard.cards.trainform.check')
 
-    expect(page).to have_content(I18n.t 'controllers.cards.right')
+    expect(page).to have_content(I18n.t 'controllers.dashboard.cards.right')
     expect(card_info.interval).to eq(1)
     expect(card_info.review_date).to be > DateTime.current
   end

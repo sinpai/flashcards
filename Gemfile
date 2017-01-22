@@ -19,8 +19,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'simple_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -39,6 +37,7 @@ gem 'whenever', require: false
 gem 'http_accept_language'
 gem 'rollbar'
 gem 'newrelic_rpm'
+gem 'responders'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -65,6 +64,13 @@ group :development do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0'
+
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
+  gem 'capistrano-secrets-yml', '~> 1.0.0'
+  gem 'capistrano-env-config'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,6 +1,7 @@
 # coding: utf-8
-class UsersController < ApplicationController
+class Dashboard::UsersController < Dashboard::ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :set_default_pack]
+  skip_before_action :check_auth, only: [:create, :new]
 
   # GET /users
   # GET /users.json
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to @user, notice: I18n.t('controllers.users.create')
+      redirect_to @user, notice: I18n.t('controllers.dashboard.users.create')
     else
       render :new
     end
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: I18n.t('controllers.users.update')
+      redirect_to @user, notice: I18n.t('controllers.dashboard.users.update')
     else
       render :edit
     end
@@ -49,15 +50,15 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    redirect_to users_url, notice: I18n.t('controllers.users.destroy')
+    redirect_to users_url, notice: I18n.t('controllers.dashboard.users.destroy')
   end
 
   def set_default_pack
     @user.default_pack = params[:id]
     if @user.save
-      redirect_to @user, notice: I18n.t('controllers.users.main_pack')
+      redirect_to @user, notice: I18n.t('controllers.dashboard.users.main_pack')
     else
-      redirect_to @user, notice: I18n.t('controllers.users.main_pack_fail')
+      redirect_to @user, notice: I18n.t('controllers.dashboard.users.main_pack_fail')
     end
   end
 

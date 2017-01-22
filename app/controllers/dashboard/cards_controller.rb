@@ -1,6 +1,7 @@
 # coding: utf-8
-class CardsController < ApplicationController
+class Dashboard::CardsController < Dashboard::ApplicationController
   include ApplicationHelper
+  respond_to :html, :js
 
   helper_method :review_diff
 
@@ -19,7 +20,7 @@ class CardsController < ApplicationController
   def create
     @card = current_user.cards.build(card_params)
     if @card.save
-      redirect_to edit_card_path(@card), notice: I18n.t('controllers.cards.created')
+      redirect_to edit_card_path(@card), notice: I18n.t('controllers.dashboard.cards.created')
     else
       render action: 'new'
     end
@@ -28,7 +29,7 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     if @card.update_attributes(card_params)
-      redirect_to edit_card_path(@card), notice: I18n.t('controllers.cards.updated')
+      redirect_to edit_card_path(@card), notice: I18n.t('controllers.dashboard.cards.updated')
     else
       render action: 'edit'
     end
@@ -36,7 +37,7 @@ class CardsController < ApplicationController
 
   def destroy
     Card.find(params[:id]).destroy
-    redirect_to user_path(current_user), notice: I18n.t('controllers.cards.deleted')
+    redirect_to user_path(current_user), notice: I18n.t('controllers.dashboard.cards.deleted')
   end
 
   def check_card
@@ -46,12 +47,12 @@ class CardsController < ApplicationController
     @on_study.update_card
     # Check translation to show user correct info about check
     if @on_study.check_translation
-      redirect_to check_card_path, notice: I18n.t('controllers.cards.right')
+      redirect_to check_card_path, notice: I18n.t('controllers.dashboard.cards.right')
     else
       if @on_study.get_distance >= 3
-        render('cards/train_failed')
+        render partial: "dashboard/cards/train_failed.js.erb"
       else
-        redirect_to(check_card_path, notice: I18n.t('controllers.cards.wrong'))
+        redirect_to(check_card_path, notice: I18n.t('controllers.dashboard.cards.wrong'))
       end
     end
   end

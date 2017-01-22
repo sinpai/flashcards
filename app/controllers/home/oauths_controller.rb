@@ -1,4 +1,4 @@
-class OauthsController < ApplicationController
+class Home::OauthsController < Home::ApplicationController
 
   # sends the user on a trip to the provider,
   # and after authorizing there back to the callback url.
@@ -14,7 +14,7 @@ class OauthsController < ApplicationController
     if @user = login_from(provider)
       # user has already linked their account with github
 
-      flash[:notice] = I18n.t('controllers.oauths.log_success').concat(provider.titleize)
+      flash[:notice] = I18n.t('controllers.home.oauths.log_success').concat(provider.titleize)
       redirect_to root_path
     else
       # User has not linked their account with Github yet. If they are logged in,
@@ -33,9 +33,9 @@ class OauthsController < ApplicationController
 
           reset_session # protect from session fixation attack
           auto_login(@user)
-          redirect_to root_path, :notice => I18n.t('controllers.oauths.log_from').concat(provider.titleize)
+          redirect_to root_path, :notice => I18n.t('controllers.home.oauths.log_from').concat(provider.titleize)
         rescue
-          redirect_to root_path, :alert => I18n.t('controllers.oauths.log_fail').concat(provider.titleize)
+          redirect_to root_path, :alert => I18n.t('controllers.home.oauths.log_fail').concat(provider.titleize)
         end
       end
     end
@@ -54,9 +54,9 @@ class OauthsController < ApplicationController
     authentication = current_user.authentications.find_by_provider(provider)
     if authentication.present?
       authentication.destroy
-      flash[:notice] = I18n.t('controllers.oauths.unlink_success').concat(provider.titleize)
+      flash[:notice] = I18n.t('controllers.home.oauths.unlink_success').concat(provider.titleize)
     else
-      flash[:alert] = I18n.t('controllers.oauths.unlink_fail').concat(provider.titleize)
+      flash[:alert] = I18n.t('controllers.home.oauths.unlink_fail').concat(provider.titleize)
     end
 
     redirect_to root_path

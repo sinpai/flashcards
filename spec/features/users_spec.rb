@@ -10,7 +10,7 @@ feature 'Users functionality' do
     within '/html/body/form' do
       fill_in 'email', with: @logined_user = User.find(10).email
       fill_in 'password', with: 'qweasd'
-      click_button I18n.t('user_sessions.form.login')
+      click_button I18n.t('home.user_sessions.form.login')
     end
   end
 
@@ -38,7 +38,7 @@ feature 'Users functionality' do
       click_button I18n.t('helpers.submit.user.create')
     end
 
-    expect(page).to have_content(I18n.t 'controllers.users.create', locale: pastloc)
+    expect(page).to have_content(I18n.t 'controllers.dashboard.users.create', locale: pastloc)
     expect(page).to have_content(useremail)
   end
 
@@ -48,10 +48,10 @@ feature 'Users functionality' do
     within '/html/body/form' do
       fill_in 'email', with: @logined_user = User.find(10).email
       fill_in 'password', with: 'qweasd'
-      click_button I18n.t('user_sessions.form.login')
+      click_button I18n.t('home.user_sessions.form.login')
     end
 
-    expect(page).to have_content(I18n.t 'controllers.user_sessions.log_success')
+    expect(page).to have_content(I18n.t 'controllers.home.user_sessions.log_success')
     expect(page).to have_content(@logined_user)
   end
 
@@ -67,7 +67,7 @@ feature 'Users functionality' do
     click_button I18n.t('helpers.submit.card.create')
 
     click_link @logined_user
-    expect(page).to have_content(I18n.t 'users.show.title_cards')
+    expect(page).to have_content(I18n.t 'dashboard.users.show.title_cards')
     expect(page).to have_content(@testword)
   end
 end

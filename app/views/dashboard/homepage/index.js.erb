@@ -1,0 +1,7 @@
+<% if notice %>
+  $("#notice_place").html("<%= escape_javascript(render partial: 'layouts/notice') %>");
+<% else %>
+  $("#notice_place").empty();
+<% end %>
+
+$("#train-form").html("<%= escape_javascript(render partial: 'dashboard/cards/trainform') %>");
